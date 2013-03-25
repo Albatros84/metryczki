@@ -335,7 +335,7 @@
 <tr>
       <td class="head"><b>Podział obowiązków grupy projektowej:</b></td>
   <td class="ins"><%= @project.responsibilities_division%></td>
-   <% if(@project.leading_head_coach_history_id!=nil && @field_hist_arr[@project.responsibilities_division_history_id].value.to_s!="") %> 			
+   <% if(@project.responsibilities_division_history_id!=nil && @field_hist_arr[@project.responsibilities_division_history_id].value.to_s!="") %> 			
 			<tdclass=<%=@users_from_history[@field_hist_arr[@project.responsibilities_division_history_id].user_id-1].role%> > <%= "Historia: "+@field_hist_arr[@project.responsibilities_division_history_id].value%><br/>
 			<%="Autor: "+@users_from_history[@field_hist_arr[@project.responsibilities_division_history_id].user_id-1].name%>
 			 </td>
