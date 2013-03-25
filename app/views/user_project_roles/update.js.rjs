@@ -1,0 +1,8 @@
+page.alert "nothing wrong here"
+
+page.select("#notice").each {|notice| notice.hide}
+
+page.replace_html('partial', render(@user))
+
+
+

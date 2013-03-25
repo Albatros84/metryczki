@@ -1,0 +1,40 @@
+class AddParticipantCountToProject < ActiveRecord::Migration
+  def change
+    add_column :projects, :participant_count, :string
+    add_column :projects, :game, :string
+    add_column :projects, :groups_division, :text
+    add_column :projects, :number_of_rooms, :string
+    add_column :projects, :date_of_game, :string
+    add_column :projects, :hour_duration, :string
+    add_column :projects, :localization, :string
+    add_column :projects, :contacts_client, :string
+    add_column :projects, :contacts_hotel, :string
+    add_column :projects, :transport_details, :text
+    add_column :projects, :accomodation, :text
+    add_column :projects, :target_agreed_with_customer, :text
+    add_column :projects, :other_expectations, :text
+    add_column :projects, :subject, :string
+    add_column :projects, :profile_of_participants, :text
+    add_column :projects, :contact_person_on_client_side, :string
+    add_column :projects, :host_of_the_meeting, :string
+    add_column :projects, :other_information, :text
+    add_column :projects, :leading_head_coach, :string
+    add_column :projects, :second_coach, :string
+    add_column :projects, :cpd_trainee, :string
+    add_column :projects, :assistants, :text
+    add_column :projects, :agenda_of_meeting, :text
+    add_column :projects, :responsibilities_division, :text
+    add_column :projects, :after_game_summary, :text
+    add_column :projects, :invitation_for_participants, :text
+    add_column :projects, :purpose_and_other_expectations, :text
+    add_column :projects, :participants_short_description_in_groups, :text   
+    add_column :projects, :course_of_training, :text
+    add_column :projects, :on_fly_findings_and_suggestions, :text
+    add_column :projects, :project_evaluation, :text
+    add_column :projects, :proposals_for_sales_potential, :text
+    add_column :projects, :merytoryka, :text
+    add_column :projects, :conduct_and_summary_of_game, :text
+    add_column :projects, :notes_on_materials, :text
+    add_column :projects, :notes_on_organization, :text  
+  end
+end

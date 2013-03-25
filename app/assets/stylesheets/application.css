@@ -1,0 +1,124 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *pplication-
+ * You're free to add awide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+/* Layout */
+
+#index_p{
+	max-width: 920px;
+    margin: 0 auto;
+}
+
+#page {
+    max-width: 920px;
+    margin: 0 auto;
+}
+#top {
+    width: 100%;
+    height: 30px;
+    padding-top: 10px;
+}
+#logo {
+    float: left;
+    padding: 0 0.5em;
+}
+#nav {
+    float: left;
+}
+#user_nav {
+    float: right;
+}
+#top a {
+    padding: 0 0.25em;
+}
+
+/* Typo */
+#logo {
+    font-weight: bold;
+    font-size: 21pt;
+}
+#top a {
+    text-decoration: none;
+    font-style: normal;
+}
+#user_nav {
+    font-style: italic;
+}
+
+/* Color */
+#top, #top a {
+    background: rgb(0, 139, 139);
+    color: white;
+}
+
+div.new a{
+    color: rgb(0,153,153);
+}
+
+.name{
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+div.new{
+	margin: 15px 15px 15px 35px;  	
+}
+
+h1.title{
+	padding: 20px 15px 15px 35px;	
+}
+
+table.metryczka{
+	margin: 25px 30px 25px 5px;
+	padding: 15px 0px 15px 0px;
+	border-top: 3px solid rgb(103,153,253);
+	border-bottom: 3px solid rgb(103,153,253);
+	max-width: 920px;
+}
+
+th{
+	padding: 5px 10px 18px 15px;	
+	font-size: 15px;
+}
+
+
+tr td{
+	margin: 0px 0px 0px 0px;
+	padding: 14px 5px 14px 5px;
+	border: 1px solid black;
+}
+
+tr td.ind{
+	margin: 0px 0px 0px 0px;
+	padding: 14px 5px 14px 5px;
+	border: 1px solid black;
+	overflow: hidden;	
+	max-width: 90px;
+}
+
+td.del a{
+	color: rgb(237,32,36);
+}
+
+td.show a{
+	color: rgb(103,153,253);
+}
+
+td.ed a{
+	color: rgb(0,153,153);
+	}
+/*To powinno nadpisywać ogólną zasadę dla tr td */
+table.menu tr td {
+	border: none;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}

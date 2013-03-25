@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+urzad_miasta:
+  name: Ekoskrzaty dla Urzedu Miasta Warszawa
+  client: Urzad Miasta Warszawa
+  project_type: Gra na zamowienie
+  highrise: http://www.postgresql.org/download/linux/ubuntu/
+  skydrive:
+  games: ekoskrzaty
+
+kozminski:
+  name: Pokaz gier w Szkole Kozminskiego
+  client: Szkoła Kozminskiego
+  project_type: Pokaz
+  highrise: http://www.postgresql.org/download/linux/ubuntu/
+  skydrive:
+  games: ekoskrzaty, strike

@@ -1,0 +1,5 @@
+
+document.write("<h1>whis ajax heading</h1>")
+
+page.replace_html('project', render(@project))
+

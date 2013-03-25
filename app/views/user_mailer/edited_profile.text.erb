@@ -1,0 +1,9 @@
+<p><%= @user.email %>,</p>
+
+<p>Dane twojego konta zostały zmienione</p>
+
+<p>Twoje hasło:</p>
+
+<p><%= @user.password%></p>
+
+<p><%= link_to "Edit profile", edit_user_url(@user) %></p>

@@ -1,0 +1,139 @@
+// Place all the styles related to the Projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.admin{
+  color: #DC143C;
+  overflow: hidden; 
+  max-width: 150px;
+}
+.sprzedaż{
+  color: #6495ED;
+  overflow: hidden; 
+  max-width: 150px;
+}
+.biuro{
+  color: #4B0082;
+  overflow: hidden; 
+  max-width: 150px;
+}
+.trener{
+  color: #006400;
+  overflow: hidden; 
+  max-width: 150px;
+}
+
+
+
+table.tabl{
+  border-style: none;
+  background: #FDFDF0;
+} 
+
+table.tabl tr td.head{
+  border-style: none; 
+  border-right: 1px solid rgb(0,153,153);
+  width: 150px; 
+  padding: 5px 35px 5px 15px;
+  margin: 0px;
+
+}
+table.tabl tr td.ins{
+  border-style: none; 
+  float: left;
+  padding: 5px 35px 5px 35px;
+  margin: 0px;
+}
+
+table.tabl tr:nth-child(even){
+  background: #FDFDF0;
+}
+table.tabl tr:nth-child(odd){
+  background: white;
+}
+
+div#pakowacz{
+  margin: 5px 5px 5px 5px;
+  padding: 5px 5px 5px 5px;
+}
+
+div.links_top{
+  float: right;
+  margin: 10px 20px 5px 5px;  
+  color: rgb(0,153,153);
+}
+
+div.links_top a{
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(237,32,36);
+}
+
+.metr{
+  margin: 10px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;  
+  border: 1px solid black;
+}
+
+.org{
+   margin: 10px 10px 10px 10px;
+   padding: 10px 10px 10px 10px;  
+   border: 1px solid black;
+}
+
+.mer{
+   margin: 10px 10px 10px 10px;
+   padding: 10px 10px 10px 10px; 
+   border: 1px solid black;
+}
+.zespol{
+  margin: 10px 10px 10px 10px;
+   padding: 10px 10px 10px 10px;  
+   border: 1px solid black;
+}
+.przedPro{
+  margin: 10px 10px 10px 10px;
+  padding: 10px 10px 10px 10px; 
+  border: 1px solid black;
+}
+.poSpotkaniu{
+  margin: 10px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
+  border: 1px solid black; 
+}
+
+h1{
+  margin: 30px 15px 30px 20px;
+  padding: 10px 10px 10px 10px;
+  font-weight: bold;
+}
+h3{
+  margin: 30px 5px 15px 5px;
+  padding: 5px 5px 5px 5px;
+  border-bottom: 3px solid rgb(0,153,153) ; 
+}
+
+div.links{
+  margin: 20px 10px 10px 10px;
+  padding: 5px 5px 5px 5px; 
+  color: rgb(0,153,153);
+  border: 1px solid black;
+}
+div.links a{
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(237,32,36);
+}
+
+
+div.actions{
+  margin: 25px 10px 10px 10px;
+  padding: 5px 5px 5px 5px; 
+  border: 1px solid black;
+}
+
+label{
+  font-weight: bold;
+}

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @welcome.name %>
+</p>
+
+<p>
+  <b>Client:</b>
+  <%= @welcome.client %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @welcome.type %>
+</p>
+
+<p>
+  <b>Highrise:</b>
+  <%= @welcome.highrise %>
+</p>
+
+<p>
+  <b>Skydrive:</b>
+  <%= @welcome.skydrive %>
+</p>
+
+
+<%= link_to 'Edit', edit_welcome_path(@welcome) %> |
+<%= link_to 'Back', welcomes_path %>

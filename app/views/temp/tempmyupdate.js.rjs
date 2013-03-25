@@ -1,0 +1,4 @@
+document.write("lalalalalal")
+
+page.select("#notice").each {|notice| notice.hide}
+page.replace_html('zespol', render(@project/@project.id/edit))

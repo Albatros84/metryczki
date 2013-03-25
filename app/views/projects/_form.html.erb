@@ -1,0 +1,223 @@
+<%= form_for(@project) do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<h3 id="metr"> Metryczka </h3>
+	<div class="metr">
+	  <div class="field">
+	    <%= f.label :Nazwa_projektu %><br />
+	    <%= f.text_area :name, :rows=>2, :cols=>105 %>
+	  </div>	  
+	  <div class="field">
+	    <%= f.label :Klient %><br />
+	    <%= f.text_area :client, :rows=>2, :cols=>105 %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :Rodzaj_projektu %><br />
+	   <%= f.text_area :project_type, :rows=>2, :cols=>105 %>
+	  </div>
+	   <div class="field">
+	    <%= f.label :Numer_księgowy %><br />
+	    <%= f.text_area :numer_ks, :rows=>2, :cols=>105 %>
+	  </div>	  
+	  <div class="field">
+	    <%= f.label :highrise %><br />
+	    <%= f.text_area :highrise, :rows=>2, :cols=>105 %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :skydrive %><br />
+	    <%= f.text_area :skydrive, :rows=>2, :cols=>105 %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :basecamp %><br />
+	    <%= f.text_area :basecamp, :rows=>2, :cols=>105 %>
+	  </div>  
+	</div>  
+<h3 id="org"> Sprawy organizacyjne </h3>
+	<div class="org">
+	  <div class="field">
+	    <%= f.label :liczba_uczestników %><br />
+	    <%= f.text_area :participant_count, :rows=>2, :cols=>105 %>
+	  </div> 
+	  <div class="field">
+	    <%= f.label :gra %><br />
+        <% Game.all.each do |game| %>
+          <%= check_box_tag("project[game_ids][]", game.id, @project.games.include?(game)) %> <%= game.name %>
+        <% end %>
+	  </div>
+	   <div class="field">
+	    <%= f.label :podział_na_grupy %><br />
+	    <%= f.text_area :groups_division, :rows=>2, :cols=>105 %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :liczba_pokoi %><br />
+	    <%= f.text_area :number_of_rooms, :rows=>2, :cols=>105 %>
+	  </div>
+	   <div class="field">
+	    <%= f.label :data_gry %><br />
+	    <%= f.text_area :date_of_game, :rows=>2, :cols=>105 %>
+	  </div>
+	   <div class="field">
+	    <%= f.label :czas_trwania_w_godzinach %><br />
+	    <%= f.text_area :hour_duration, :rows=>2, :cols=>105 %>
+	  </div>
+	   <div class="field">
+	    <%= f.label :lokalizacja %><br />
+	    <%= f.text_area :localization, :rows=>2, :cols=>105 %>
+	  </div>
+	   <div class="field">
+	    <%= f.label :osoby_kontaktowe_od_strony_organizacyjnej_klient %><br />
+	    <%= f.text_area :contacts_client, :rows=>2, :cols=>105%>
+	  </div>
+	  <div class="field">
+	    <%= f.label :osoby_kontaktowe_od_strony_organizacyjnej_hotel %><br />
+	    <%= f.text_area :contacts_hotel, :rows=>2, :cols=>105%>
+	  </div>
+	   <div class="field">
+	    <%= f.label :szczegóły_transportu %><br />
+	    <%= f.text_area :transport_details, :rows=>2, :cols=>105%>
+	  </div>
+	   <div class="field">
+	    <%= f.label :zakwaterowanie%><br />
+	    <%= f.text_area :accomodation, :rows=>2, :cols=>105%>
+	  </div>
+	</div>  
+	<h3 id="mer">Kwestie merytoryczne</h3>
+	  <div class="mer">
+	   <div class="field">
+	    <%= f.label :cel_uzgodniony_z_klientem%><br />
+	    <%= f.text_area :target_agreed_with_customer, :rows=>2, :cols=>105, :class => 'ckeditor'%>
+	  </div>
+	   <div class="field">
+	    <%= f.label :pozostałe_oczekiwania_klienta %><br />
+	    <%= f.text_area :other_expectations, :rows=>2, :cols=>105, :class => 'ckeditor'%>
+	  </div>
+	   <div class="field">
+	    <%= f.label :temat_i_kontekst %><br />
+	    <%= f.text_area :subject, :rows=>2, :cols=>105, :class => 'ckeditor'%>
+	  </div>
+	  <div class="field">
+	    <%= f.label :profil_uczestników%><br />
+	    <%= f.text_area :profile_of_participants, :rows=>2, :cols=>105, :class => 'ckeditor'%>
+	  </div>
+	  <div class="field">
+	    <%= f.label :osoba_kontaktowa_po_stronie_klienta%><br />
+	    <%= f.text_area :contact_person_on_client_side, :rows=>2, :cols=>105%>
+	  </div>
+	  <div class="field">
+	    <%= f.label :gospodarz_lub_sponsor_spotkania%><br />
+	    <%= f.text_area :host_of_the_meeting, :rows=>2, :cols=>105%>
+	  </div>
+	  <div class="field">
+	    <%= f.label :pozostałe_informacje_np_rodzaj_raportu%><br />
+	    <%= f.text_area :other_information, :rows=>2, :cols=>105%>
+	  </div>
+	</div>
+	
+<div class="zespol"> 
+ <div class="field">
+	    <%= f.label :główny_trener_prowadzący%><br />
+	    <%= f.text_area :leading_head_coach, :rows=>2, :cols=>105%>	   	    
+	  </div>	  
+	  <div class="field">
+	    <%= f.label :drugi_trener%><br />
+	    <%= f.text_area :second_coach, :rows=>2, :cols=>105%>
+	  </div>
+	  <div class="field">
+	    <%= f.label :Trainee_w_ramach_CPD%><br />
+	    <%= f.text_area :cpd_trainee, :rows=>2, :cols=>105%>
+	  </div>
+	  <div class="field">
+	    <%= f.label :Asystenci%><br />
+	    <%= f.text_area :assistants, :rows=>2, :cols=>105%>
+	  </div>
+
+	 			
+	</div>
+<h3 id="przedPro"> Przed projektem</h3>
+	<div class="przedPro">
+	   <div class="field">
+	    <%= f.label :agenda_spotkania%><br />
+	    <%= f.text_area :agenda_of_meeting, :rows=>2, :cols=>105, :class => 'ckeditor'%>
+	  </div>
+	   <div class="field">
+	    <%= f.label :podział_odpowiedzialności_zespołu_projektowego%><br />
+	    <%= f.text_area :responsibilities_division, :rows=>2, :cols=>105 , :class => 'ckeditor'%>
+	  </div>
+	  <div class="field">
+	    <%= f.label :podsumowanie_po_grze_i_program_warsztatu%><br />
+	    <%= f.text_area :after_game_summary, :rows=>2, :cols=>105, :class => 'ckeditor'%>
+	  </div>
+	   <div class="field">
+	    <%= f.label :zaproszenie_dla_uczestników%><br />
+	    <%= f.text_area :invitation_for_participants, :rows=>2, :cols=>105, :class => 'ckeditor'%>
+	  </div>
+	</div>  
+<h3 id="poSpotkaniu"> Po projekcie </h3>
+	<div class="poSpotkaniu">	  
+	  <div class="field">
+	    <%= f.label :cel_i_pozostałe_oczekiwania_klienta%> (w jakim stopniu zostały zrealizowane, jakie były sytuacje trudne)<br />
+	    <%= f.text_area :purpose_and_other_expectations, :rows=>2, :cols=>105, :class => 'ckeditor'%>
+	  </div>
+	  <div class="field">
+	    <%= f.label :uczestnicy_i_krótka_charakterystyka_z_podziałem_na_grupy%><br />
+	    <%= f.text_area :participants_short_description_in_groups, :rows=>2, :cols=>105, :class => 'ckeditor'%>
+	  </div>  
+	  <div class="field">
+	    <%= f.label :przebieg_szkolenia_oraz_gry%><br />
+	    <%= f.text_area :course_of_training, :rows=>2, :cols=>105, :class => 'ckeditor'%>
+	  </div>
+	  <div class="field">
+	    <%= f.label :ustalenia_z_klientem_uzgodnione_podczas_projektu_oraz_jego_sugestie%><br />
+	    <%= f.text_area :on_fly_findings_and_suggestions, :rows=>2, :cols=>105, :class => 'ckeditor'%>
+	  </div>
+	   <div class="field">
+	    <%= f.label :ocena_realizacji_projektu_przez_zespół_projektowy%><br />
+	    <%= f.text_area :project_evaluation, :rows=>2, :cols=>105, :class => 'ckeditor'%>
+	  </div>
+	   <div class="field">
+	    <%= f.label :wnioski_dotyczące_potencjału_sprzedażowego%><br />
+	    <%= f.text_area :proposals_for_sales_potential, :rows=>2, :cols=>105, :class => 'ckeditor'%>
+	  </div>
+	  <div class="field">
+	    <%= f.label :merytoryka_oraz_program_warsztatu%>, gra vs cel, podsumowanie po grze<br />
+	    <%= f.text_area :merytoryka, :rows=>2, :cols=>105, :class => 'ckeditor'%>
+	  </div>	
+	  <div class="field">
+	    <%= f.label :przeprowadzenie_i_podsumowanie_gry%><br />
+	    <%= f.text_area :conduct_and_summary_of_game, :rows=>2, :cols=>105, :class => 'ckeditor'%>
+	  </div>
+		<div class="field">
+	    <%= f.label :uwagi_odnośnie_materiałów%><br />
+	    <%= f.text_area :notes_on_materials, :rows=>2, :cols=>105, :class => 'ckeditor'%>
+	  </div>
+	  <div class="field">
+	    <%= f.label :uwagi_odnośnie_organizacji%><br />
+	    <%= f.text_area :notes_on_organization, :rows=>2, :cols=>105, :class => 'ckeditor'%>
+	  </div>
+	</div>	  
+	  <div class="actions">
+	    <%= f.submit %>
+	  </div>
+<% end %>
+
+	<h3>Zespół </h3>
+	<%= form_tag('myupdate', :remote => true) do%>	
+	<%= hidden_field_tag(:project_id, @project.id) %>
+	<%= select_tag "users", options_from_collection_for_select(@users, "id", "name")%>
+	<%= select_tag "proj_role", options_for_select([ "trener", "asystent", "koordynator merytoryczny", "reporter" ]) %>
+	<%= button_to "Dodaj uczestnika", {:controller => "projects", :action => "myupdate"}, :remote => true,:id => @project.id %>
+	<%end%>
+	<div id="part">
+		<%= render :partial=>"partial"%>
+	</div>
+
+

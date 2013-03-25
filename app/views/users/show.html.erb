@@ -1,0 +1,25 @@
+<div class="links_top">
+<%= link_to 'Edit', edit_user_path(@user) %> <br/>
+<%= link_to 'Back', users_path %>
+</div>
+	<h1>Szczegóły użytkownika</h1>
+<p id="notice"><%= notice %></p>
+<div class="metr">
+	
+	<table class="tabl">
+	<tr>
+		<td class="head"><b>Email:</b> </td>
+		<td class="ins"><%=@user.email%> </td> 
+	</tr>
+	
+	<tr>
+	  <td class="head"><b>Imie:</b></td>
+	  <td class="ins"><%= @user.name %></td>
+	</tr>
+	
+	<tr>
+	  <td class="head"><b>Rola:</b></td>
+	  <td class="ins"><%= @user.role %></td>
+	</tr>
+		
+</table>

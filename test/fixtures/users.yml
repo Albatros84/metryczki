@@ -1,0 +1,20 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  email: janlir@wp.pl
+  password_hash: $2a$10$GXkBah0Kq4wWTIEndhpH6OhJqaPrDxcEXxWuwkO3iRKZAAPL7yKiq
+  password_salt: $2a$10$GXkBah0Kq4wWTIEndhpH6O
+  role: admin
+  auth_token: RZ7Q3iIbrXgUmaZTas9eYQ
+  password_reset_token:
+  password_reset_sent_at:
+
+maciek:
+  email: maciek@kapustka.net
+  # password: tajne
+  password_hash: $2a$10$.byXsyo.dNESwP675I8xTOK86yyR7Ia2/L9KFGqwPUkSA8aMqB0.C
+  password_salt: $2a$10$.byXsyo.dNESwP675I8xTO
+  role: admin
+  auth_token: RZ7Q3iIbrXgUmaZTas9eYQ
+  password_reset_token:
+  password_reset_sent_at:
