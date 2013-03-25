@@ -6,7 +6,7 @@
   	<% unless upr.user.nil?%>
    <td><%= upr.user.name%></td>
   <td><%= upr.proj_role%></td>
-  <td><%= link_to 'Usuń użytkownika', upr, method: :delete, :remote=>true %></td>
+  <td><%= link_to 'Usuń uczestnika', upr, method: :delete, :remote=>true %></td>
   	<%end%>
    </tr>
   <% end %>
