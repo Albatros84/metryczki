@@ -13,8 +13,8 @@
 		<td class="head"><b>Nazwa projektu:</b> </td>
 		<td class="ins"><%=@project.name%> </td> 
 		<% if(@project.name_history_id!=nil && @field_hist_arr[@project.name_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.name_history_id].user_id-1]!=nil) %>			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.name_history_id].user_id-1].role%>  ><%= "Historia: "+@field_hist_arr[@project.name_history_id].value%> <br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.name_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.name_history_id].user_id].role%>  ><%= "Historia: "+@field_hist_arr[@project.name_history_id].value%> <br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.name_history_id].user_id].name%>
 				</td>	
 			
 			<% end %> 		
@@ -24,8 +24,8 @@
   <td class="head"><b>Klient:</b></td>
   <td class="ins"><%= @project.client %></td>
   <% if(@project.client_history_id!=nil && @field_hist_arr[@project.client_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.client_history_id].user_id-1]!=nil) %> 		
-  <td class=<%=@users_from_history[@field_hist_arr[@project.client_history_id].user_id-1].role%>><%= "Historia: "+@field_hist_arr[@project.client_history_id].value%> <br/>
-  	<%="Autor: "+@users_from_history[@field_hist_arr[@project.client_history_id].user_id-1].name%>
+  <td class=<%=@users_from_history[@field_hist_arr[@project.client_history_id].user_id].role%>><%= "Historia: "+@field_hist_arr[@project.client_history_id].value%> <br/>
+  	<%="Autor: "+@users_from_history[@field_hist_arr[@project.client_history_id].user_id].name%>
   	</td>
 			<% end %>   	
 </tr>
@@ -34,8 +34,8 @@
   <td class="head"><b>Rodzaj projektu:</b></td>
   <td class="ins"><%= @project.project_type %></td>
   	<% if(@project.project_type_history_id!=nil && @field_hist_arr[@project.project_type_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.project_type_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.project_type_history_id].user_id-1].role%> > <%= "Historia: "+@field_hist_arr[@project.project_type_history_id].value%> <br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.project_type_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.project_type_history_id].user_id].role%> > <%= "Historia: "+@field_hist_arr[@project.project_type_history_id].value%> <br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.project_type_history_id].user_id].name%>
 				</td>
 			<% end %> 
 </tr>
@@ -44,8 +44,8 @@
   <td class="head"><b>Numer księgowy:</b></td>
   <td class="ins"><%= @project.numer_ks %></td>
   	<% if(@project.numer_ks_history_id!=nil && @field_hist_arr[@project.numer_ks_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.numer_ks_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.numer_ks_history_id].user_id-1].role%> > <%= "Historia: "+@field_hist_arr[@project.numer_ks_history_id].value%> <br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.numer_ks_history_id].user_id-1].name%> 
+			<td class=<%=@users_from_history[@field_hist_arr[@project.numer_ks_history_id].user_id].role%> > <%= "Historia: "+@field_hist_arr[@project.numer_ks_history_id].value%> <br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.numer_ks_history_id].user_id].name%> 
 				</td>
 			<% end %> 
 </tr>
@@ -54,8 +54,8 @@
   <td class="head"><b>Highrise:</b></td>
   <td class="ins"><a href=<%= @project.highrise.to_s%> target="blank"><%= @project.highrise.to_s %></a></td>
   	<% if(@project.highrise_history_id!=nil && @field_hist_arr[@project.highrise_history_id].value.to_s!="" && @users_from_history[@field_hist_arr[@project.highrise_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.highrise_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.highrise_history_id].value%> <br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.highrise_history_id].user_id-1].name%> 
+			<td class=<%=@users_from_history[@field_hist_arr[@project.highrise_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.highrise_history_id].value%> <br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.highrise_history_id].user_id].name%> 
 				 </td>
 			<% end %> 
 </tr>
@@ -64,8 +64,8 @@
   <td class="head"><b>Skydrive:</b></td>
   <td class="ins"><a href=<%= @project.skydrive.to_s%> target="blank"><%= @project.skydrive %></a></td>
   <% if(@project.skydrive_history_id!=nil && @field_hist_arr[@project.skydrive_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.skydrive_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.skydrive_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.skydrive_history_id].value%> <br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.skydrive_history_id].user_id-1].name%> 
+			<td class=<%=@users_from_history[@field_hist_arr[@project.skydrive_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.skydrive_history_id].value%> <br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.skydrive_history_id].user_id].name%> 
 				</td>
 			<% end %> 
 </tr>
@@ -74,8 +74,8 @@
   <td class="head"><b>Basecamp:</b></td>
   <td class="ins"><a href=<%= @project.basecamp.to_s%> target="blank"><%= @project.basecamp.to_s%></a></td>
   <% if(@project.basecamp_history_id!=nil && @field_hist_arr[@project.basecamp_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.basecamp_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.basecamp_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.basecamp_history_id].value%> <br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.basecamp_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.basecamp_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.basecamp_history_id].value%> <br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.basecamp_history_id].user_id].name%>
 				</td>
 			<% end %>
 </tr>
@@ -89,8 +89,8 @@
   <td class="head"><b>Liczba uczestników:</b></td>
   <td class="ins"><%= @project.participant_count%></td>
   <% if(@project.participant_count_history_id!=nil && @field_hist_arr[@project.participant_count_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.participant_count_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.participant_count_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.participant_count_history_id].value%><br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.participant_count_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.participant_count_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.participant_count_history_id].value%><br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.participant_count_history_id].user_id].name%>
 				 </td>
 			<% end %>
 </tr>
@@ -100,7 +100,7 @@
 
   <td class="ins"><%= @project.game%></td>
   <% if(@project.game_history_id!=nil)%> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.game_history_id].user_id-1].role%>> <%= #"Historia: "+@field_hist_arr[@project.game_history_id].value
+			<td class=<%=@users_from_history[@field_hist_arr[@project.game_history_id].user_id].role%>> <%= #"Historia: "+@field_hist_arr[@project.game_history_id].value
 			%> </td>
 			<% end%>
   <td class="ins"><%= @project.games.collect {|g| g.name}.join(', ')%></td>
@@ -110,8 +110,8 @@
   <td class="head"><b>Podział na grupy:</b></td>
   <td class="ins"><%= @project.groups_division%></td>
   <% if(@project.groups_division_history_id!=nil && @field_hist_arr[@project.groups_division_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.groups_division_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.groups_division_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.groups_division_history_id].value%><br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.groups_division_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.groups_division_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.groups_division_history_id].value%><br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.groups_division_history_id].user_id].name%>
 				 </td>
 			<% end %>
 </tr>
@@ -120,8 +120,8 @@
   <td class="head"> <b>Liczba sal:</b></td>
   <td class="ins"><%= @project.number_of_rooms%></td>
   <% if(@project.number_of_rooms_history_id!=nil && @field_hist_arr[@project.number_of_rooms_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.number_of_rooms_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.number_of_rooms_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.number_of_rooms_history_id].value%><br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.number_of_rooms_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.number_of_rooms_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.number_of_rooms_history_id].value%><br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.number_of_rooms_history_id].user_id].name%>
 				 </td>
 			<% end %>
 </tr>
@@ -130,8 +130,8 @@
   <td class="head"> <b>Data:</b></td>
   <td class="ins"><%= @project.date_of_game%></td>
   <% if(@project.date_of_game_history_id!=nil && @field_hist_arr[@project.date_of_game_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.date_of_game_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.date_of_game_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.date_of_game_history_id].value%><br/> 
-			<%="Autor: "+@users_from_history[@field_hist_arr[@project.date_of_game_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.date_of_game_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.date_of_game_history_id].value%><br/> 
+			<%="Autor: "+@users_from_history[@field_hist_arr[@project.date_of_game_history_id].user_id].name%>
 			</td>
 			<% end %>
 </tr>
@@ -140,8 +140,8 @@
   <td class="head"> <b>Godziny:</b></td>
   <td class="ins"><%= @project.hour_duration%></td>
    <% if(@project.hour_duration_history_id!=nil && @field_hist_arr[@project.hour_duration_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.hour_duration_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.hour_duration_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.hour_duration_history_id].value%> <br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.hour_duration_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.hour_duration_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.hour_duration_history_id].value%> <br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.hour_duration_history_id].user_id].name%>
 				</td>
 			<% end %>
 </tr>
@@ -150,8 +150,8 @@
   <td class="head"><b>Lokalizacja:</b></td>
   <td class="ins"><%= @project.localization%></td>
   <% if(@project.localization_history_id!=nil && @field_hist_arr[@project.localization_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.localization_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.localization_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.localization_history_id].value%> <br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.localization_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.localization_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.localization_history_id].value%> <br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.localization_history_id].user_id].name%>
 				</td>
 			<% end %>
   </tr>
@@ -160,8 +160,8 @@
   <td class="head"> <b>Osoby kontaktowe od strony organizacyjnej (klient):</b></td>
   <td class="ins"><%= @project.contacts_client%></td>
   <% if(@project.contacts_client_history_id!=nil && @field_hist_arr[@project.contacts_client_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.contacts_client_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.contacts_client_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.contacts_client_history_id].value%><br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.contacts_client_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.contacts_client_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.contacts_client_history_id].value%><br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.contacts_client_history_id].user_id].name%>
 				 </td>
 			<% end %>
 </tr>
@@ -170,8 +170,8 @@
   <td class="head">  <b>Osoby kontaktowe od strony organizacyjnej (hotel):</b></td>
   <td class="ins"><%= @project.contacts_hotel%></td>
   <% if(@project.contacts_hotel_history_id!=nil && @field_hist_arr[@project.contacts_hotel_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.contacts_hotel_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.contacts_hotel_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.contacts_hotel_history_id].value%><br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.contacts_hotel_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.contacts_hotel_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.contacts_hotel_history_id].value%><br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.contacts_hotel_history_id].user_id].name%>
 				 </td>
 			<% end %>
 </tr>
@@ -180,8 +180,8 @@
   <td class="head"><b>Szczegóły dotyczące transportu:</b></td>
   <td class="ins"><%= @project.transport_details%></td>
   <% if(@project.transport_details_history_id!=nil && @field_hist_arr[@project.transport_details_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.transport_details_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.transport_details_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.transport_details_history_id].value%> <br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.transport_details_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.transport_details_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.transport_details_history_id].value%> <br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.transport_details_history_id].user_id].name%>
 				</td>
 			<% end %>
 </tr>
@@ -190,8 +190,8 @@
   <td class="head"><b>Zakwaterowanie:</b></td>
   <td class="ins"><%= @project.accomodation%></td>
   <% if(@project.accomodation_history_id!=nil && @field_hist_arr[@project.accomodation_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.accomodation_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.accomodation_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.accomodation_history_id].value%><br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.accomodation_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.accomodation_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.accomodation_history_id].value%><br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.accomodation_history_id].user_id].name%>
 				 </td>
 			<% end %>
  </tr>
@@ -205,8 +205,8 @@
 		<td class="head"> <b>Cel uzgodniony z klientem:</b></td>
   <td class="ins"><%= @project.target_agreed_with_customer%></td>
   <% if(@project.target_agreed_with_customer_history_id!=nil && @field_hist_arr[@project.target_agreed_with_customer_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.target_agreed_with_customer_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.target_agreed_with_customer_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.target_agreed_with_customer_history_id].value%><br/> 
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.target_agreed_with_customer_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.target_agreed_with_customer_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.target_agreed_with_customer_history_id].value%><br/> 
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.target_agreed_with_customer_history_id].user_id].name%>
 				</td>
 			<% end %>
 </tr>
@@ -215,8 +215,8 @@
   <b>Pozostałe oczekiwania klienta:</b></td>
   <td class="ins"><%= @project.other_expectations%></td>
   <% if(@project.other_expectations_history_id!=nil && @field_hist_arr[@project.other_expectations_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.other_expectations_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.other_expectations_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.other_expectations_history_id].value%> <br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.other_expectations_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.other_expectations_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.other_expectations_history_id].value%> <br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.other_expectations_history_id].user_id].name%>
 				 </td>
 			<% end %>
 </tr>
@@ -224,8 +224,8 @@
 		<td class="head"><b>Temat i kontekst:</b></td>
   <td class="ins"><%= @project.subject%></td>
   <% if(@project.subject_history_id!=nil && @field_hist_arr[@project.subject_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.subject_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.subject_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.subject_history_id].value%> <br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.subject_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.subject_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.subject_history_id].value%> <br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.subject_history_id].user_id].name%>
 				</td>
 			<% end %>
 </tr>
@@ -233,8 +233,8 @@
 		<td class="head"><b>Profil uczestników:</b></td>
   <td class="ins"><%= @project.profile_of_participants%></td>
   <% if(@project.profile_of_participants_history_id!=nil && @field_hist_arr[@project.profile_of_participants_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.profile_of_participants_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.profile_of_participants_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.profile_of_participants_history_id].value%> <br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.profile_of_participants_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.profile_of_participants_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.profile_of_participants_history_id].value%> <br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.profile_of_participants_history_id].user_id].name%>
 				 </td>
 			<% end %>
 </tr>
@@ -242,8 +242,8 @@
 		<td class="head"><b>Osoba kontaktowa po stronie klienta:</b></td>
   <td class="ins"><%= @project.contact_person_on_client_side%></td>
   <% if(@project.contact_person_on_client_side_history_id!=nil && @field_hist_arr[@project.contact_person_on_client_side_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.contact_person_on_client_side_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.contact_person_on_client_side_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.contact_person_on_client_side_history_id].value%><br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.contact_person_on_client_side_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.contact_person_on_client_side_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.contact_person_on_client_side_history_id].value%><br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.contact_person_on_client_side_history_id].user_id].name%>
 				 </td>
 			<% end %>
 </tr>
@@ -251,8 +251,8 @@
 		<td class="head"> <b>Gospodarz lub sponsor spotkania:</b></td>
   <td class="ins"><%= @project.host_of_the_meeting%></td>
   <% if(@project.host_of_the_meeting_history_id!=nil && @field_hist_arr[@project.host_of_the_meeting_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.host_of_the_meeting_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.host_of_the_meeting_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.host_of_the_meeting_history_id].value%><br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.host_of_the_meeting_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.host_of_the_meeting_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.host_of_the_meeting_history_id].value%><br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.host_of_the_meeting_history_id].user_id].name%>
 				 </td>
 			<% end %>
 </tr>
@@ -260,8 +260,8 @@
 		<td class="head"> <b>Pozostałe informacje (np. rodzaj raportu) :</b></td>
   <td class="ins"><%= @project.other_information%></td>
   <% if(@project.other_information_history_id!=nil && @field_hist_arr[@project.other_information_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.other_information_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.other_information_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.other_information_history_id].value%><br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.other_information_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.other_information_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.other_information_history_id].value%><br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.other_information_history_id].user_id].name%>
 				 </td>
 			<% end %>
 </tr>
@@ -286,8 +286,8 @@
       <td class="head"><b>Uwagi:</b></td>
       <td class="ins"><%= @project.assistants%></td>
       <% if(@project.assistants_history_id!=nil && @field_hist_arr[@project.assistants_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.assistants_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.assistants_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.assistants_history_id].value%> <br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.assistants_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.assistants_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.assistants_history_id].value%> <br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.assistants_history_id].user_id].name%>
 				 </td>
 			<% end %>
 </tr>
@@ -300,8 +300,8 @@
       <td class="head"><b>Agenda spotkania:</b></td>
   <td class="ins"><%= @project.agenda_of_meeting%></td>
       <% if(@project.agenda_of_meeting_history_id!=nil && @field_hist_arr[@project.agenda_of_meeting_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.agenda_of_meeting_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.agenda_of_meeting_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.agenda_of_meeting_history_id].value%> <br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.agenda_of_meeting_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.agenda_of_meeting_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.agenda_of_meeting_history_id].value%> <br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.agenda_of_meeting_history_id].user_id].name%>
 				</td>
 			<% end %>
 </tr>
@@ -309,8 +309,8 @@
       <td class="head"><b>Podział obowiązków grupy projektowej:</b></td>
   <td class="ins"><%= @project.responsibilities_division%></td>
    <% if(@project.responsibilities_division_history_id!=nil && @field_hist_arr[@project.responsibilities_division_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.responsibilities_division_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.responsibilities_division_history_id].user_id-1].role%> > <%= "Historia: "+@field_hist_arr[@project.responsibilities_division_history_id].value%><br/>
-			<%="Autor: "+@users_from_history[@field_hist_arr[@project.responsibilities_division_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.responsibilities_division_history_id].user_id].role%> > <%= "Historia: "+@field_hist_arr[@project.responsibilities_division_history_id].value%><br/>
+			<%="Autor: "+@users_from_history[@field_hist_arr[@project.responsibilities_division_history_id].user_id].name%>
 			 </td>
 			<% end %>
 </tr>
@@ -318,16 +318,16 @@
       <td class="head"><b>Podsumowanie po grze oraz program warsztatu:</b></td>
   <td class="ins"><%= @project.after_game_summary%></td>
    <% if(@project.after_game_summary_history_id!=nil && @field_hist_arr[@project.after_game_summary_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.after_game_summary_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.after_game_summary_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.after_game_summary_history_id].value%> <br/>
-			<%="Autor: "+@users_from_history[@field_hist_arr[@project.after_game_summary_history_id].user_id-1].name%></td>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.after_game_summary_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.after_game_summary_history_id].value%> <br/>
+			<%="Autor: "+@users_from_history[@field_hist_arr[@project.after_game_summary_history_id].user_id].name%></td>
 			<% end %>
 </tr>
 <tr>
       <td class="head"><b>Zaproszenie, dla uczestników:</b></td>
   <td class="ins"><%= @project.invitation_for_participants%></td>
   <% if(@project.invitation_for_participants_history_id!=nil && @field_hist_arr[@project.invitation_for_participants_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.invitation_for_participants_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.invitation_for_participants_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.invitation_for_participants_history_id].value%> <br/>
-					<%="Autor: "+@users_from_history[@field_hist_arr[@project.invitation_for_participants_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.invitation_for_participants_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.invitation_for_participants_history_id].value%> <br/>
+					<%="Autor: "+@users_from_history[@field_hist_arr[@project.invitation_for_participants_history_id].user_id].name%>
 				</td>
 			<% end %>
 </tr>
@@ -341,8 +341,8 @@
       <td class="head"><b>Cel i pozostałe oczekiwania klienta (w jakim stopniu zostały zrealizowane, jakie były sytuacje trudne):</b></td>
   <td class="ins"><%= @project.purpose_and_other_expectations%></td>
   <% if(@project.purpose_and_other_expectations_history_id!=nil && @field_hist_arr[@project.purpose_and_other_expectations_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.purpose_and_other_expectations_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.purpose_and_other_expectations_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.purpose_and_other_expectations_history_id].value%> <br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.purpose_and_other_expectations_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.purpose_and_other_expectations_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.purpose_and_other_expectations_history_id].value%> <br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.purpose_and_other_expectations_history_id].user_id].name%>
 				</td>
 			<% end %>
 </tr>
@@ -350,8 +350,8 @@
       <td class="head"><b>Uczestnicy i krótka charakterystyka z podziałem na grupy:</b></td>
   <td class="ins"><%= @project.participants_short_description_in_groups%></td>
   <% if(@project.participants_short_description_in_groups_history_id!=nil && @field_hist_arr[@project.participants_short_description_in_groups_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.participants_short_description_in_groups_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.participants_short_description_in_groups_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.participants_short_description_in_groups_history_id].value%> <br/> 
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.participants_short_description_in_groups_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.participants_short_description_in_groups_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.participants_short_description_in_groups_history_id].value%> <br/> 
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.participants_short_description_in_groups_history_id].user_id].name%>
 				</td>
 			<% end %>
 </tr>
@@ -359,8 +359,8 @@
       <td class="head"><b>Przebieg szkolenia oraz gry:</b></td>
   <td class="ins"><%= @project.course_of_training%></td>
   <% if(@project.course_of_training_history_id!=nil && @field_hist_arr[@project.course_of_training_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.course_of_training_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.course_of_training_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.course_of_training_history_id].value%> <br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.course_of_training_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.course_of_training_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.course_of_training_history_id].value%> <br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.course_of_training_history_id].user_id].name%>
 				 </td>
 			<% end %>
 </tr>
@@ -368,8 +368,8 @@
       <td class="head"><b>Ustalenia z klientem uzgodnione podczas projektu oraz jego sugestie:</b></td>
   <td class="ins"><%= @project.on_fly_findings_and_suggestions%></td>
   <% if(@project.on_fly_findings_and_suggestions_history_id!=nil && @field_hist_arr[@project.on_fly_findings_and_suggestions_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.on_fly_findings_and_suggestions_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.on_fly_findings_and_suggestions_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.on_fly_findings_and_suggestions_history_id].value%> <br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.on_fly_findings_and_suggestions_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.on_fly_findings_and_suggestions_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.on_fly_findings_and_suggestions_history_id].value%> <br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.on_fly_findings_and_suggestions_history_id].user_id].name%>
 				 </td>
 			<% end %>
 </tr>
@@ -377,8 +377,8 @@
       <td class="head"><b>Ocena realizacji projektu przez zespół projektowy:</b></td>
   <td class="ins"><%= @project.project_evaluation%></td>
   <% if(@project.project_evaluation_history_id!=nil && @field_hist_arr[@project.project_evaluation_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.project_evaluation_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.project_evaluation_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.project_evaluation_history_id].value%>  <br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.project_evaluation_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.project_evaluation_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.project_evaluation_history_id].value%>  <br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.project_evaluation_history_id].user_id].name%>
 				</td>
 			<% end %>
 </tr>
@@ -386,8 +386,8 @@
       <td class="head"><b>Wnioski dotyczące potencjału sprzedażowego:</b></td>
   <td class="ins"><%= @project.proposals_for_sales_potential%></td>
   <% if(@project.proposals_for_sales_potential_history_id!=nil && @field_hist_arr[@project.proposals_for_sales_potential_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.proposals_for_sales_potential_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.proposals_for_sales_potential_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.proposals_for_sales_potential_history_id].value%> <br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.proposals_for_sales_potential_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.proposals_for_sales_potential_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.proposals_for_sales_potential_history_id].value%> <br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.proposals_for_sales_potential_history_id].user_id].name%>
 				</td>
 			<% end %>
 </tr>
@@ -395,8 +395,8 @@
       <td class="head"><b>Merytoryka oraz program warsztatu, gra vs cel, podsumowanie po grze:</b></td>
   <td class="ins"><%= @project.merytoryka%></td>
    <% if(@project.merytoryka_history_id!=nil && @field_hist_arr[@project.merytoryka_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.merytoryka_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.merytoryka_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.merytoryka_history_id].value%> <br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.merytoryka_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.merytoryka_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.merytoryka_history_id].value%> <br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.merytoryka_history_id].user_id].name%>
 				 </td>
 			<% end %>
 </tr>
@@ -404,8 +404,8 @@
   <td class="head"><b>Przeprowadzenie i podsumowanie gry:</b></td>
   <td class="ins"><%= @project.conduct_and_summary_of_game%></td>
   <% if(@project.conduct_and_summary_of_game_history_id!=nil && @field_hist_arr[@project.conduct_and_summary_of_game_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.conduct_and_summary_of_game_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.conduct_and_summary_of_game_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.conduct_and_summary_of_game_history_id].value%> <br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.conduct_and_summary_of_game_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.conduct_and_summary_of_game_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.conduct_and_summary_of_game_history_id].value%> <br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.conduct_and_summary_of_game_history_id].user_id].name%>
 				 </td>
 			<% end %>
 </tr>
@@ -413,8 +413,8 @@
   <td class="head"><b>Uwagi odnośnie materiałów:</b></td>
   <td class="ins"><%= @project.notes_on_materials%></td>
   <% if(@project.notes_on_materials_history_id!=nil && @field_hist_arr[@project.notes_on_materials_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.notes_on_materials_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.notes_on_materials_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.notes_on_materials_history_id].value%> <br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.notes_on_materials_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.notes_on_materials_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.notes_on_materials_history_id].value%> <br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.notes_on_materials_history_id].user_id].name%>
 				</td>
 			<% end %>
 </tr>
@@ -422,8 +422,8 @@
   <td class="head"><b>Uwagi odnośnie organizacji:</b></td>
   <td class="ins"><%= @project.notes_on_organization%></td>
   <% if(@project.notes_on_organization_history_id!=nil && @field_hist_arr[@project.notes_on_organization_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.notes_on_organization_history_id].user_id-1]!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.notes_on_organization_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.notes_on_organization_history_id].value%> <br/>
-				<%="Autor: "+@users_from_history[@field_hist_arr[@project.notes_on_organization_history_id].user_id-1].name%>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.notes_on_organization_history_id].user_id].role%>> <%= "Historia: "+@field_hist_arr[@project.notes_on_organization_history_id].value%> <br/>
+				<%="Autor: "+@users_from_history[@field_hist_arr[@project.notes_on_organization_history_id].user_id].name%>
 				</td>
 			<% end %>
   

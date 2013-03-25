@@ -92,7 +92,14 @@ class ProjectsController < ApplicationController
     @user_ids=Array.new
     @user_names=Array.new
     @project = Project.find(params[:id])
-    @users_from_history=User.all
+    #@users_from_history=User.all
+    @users_from_history=Hash.new
+    unless User.minimum("id")==nil
+      User.minimum("id").upto(User.maximum("id")){|i|
+        @users_from_history[i]=User.find(i)
+        }
+    end
+    
     @user_project_roles=ProjectUser.find_all_by_project_id(@project.id)
     #**********
     @users=Hash.new  
