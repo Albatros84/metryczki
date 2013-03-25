@@ -128,7 +128,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   # GET /projects/new.json
   def new
-    @project = Project.new
+     @project = Project.new
     #******partial
      @user_project_roles=Hash.new
      @users=Hash.new
@@ -182,6 +182,7 @@ class ProjectsController < ApplicationController
     params[:project][:game_ids] ||= []
     respond_to do |format|
       if @project.save
+      remember_author_create(params[:project], @project)
        # @user_project=ProjectUser.new
        # selected_user = params[:users]
        # @user_project.proj_role = params[:proj_role]
@@ -211,9 +212,11 @@ class ProjectsController < ApplicationController
      respond_to do |format|
        if @project.update_attributes(params[:project])
          
+         remember_author_update(params[:project], @project, old_project)
+         
          remember_changes params[:project], old_project, id
          format.html { redirect_to projects_url, notice: 'Project was successfully updated.' }                          
-          format.js
+         format.js
          format.js { render js: @project, status: :created, location: @project }               
        else
          format.html { render action: "edit" }
@@ -221,6 +224,45 @@ class ProjectsController < ApplicationController
        end
     end
   end
+  
+  def remember_author_create(project_array, project)#pierwszy parametr to params/post a drugi parametr to obiekt
+    user=current_user
+    project_array.each do |key,value|
+    next if key == "game_ids"
+      unless value.nil? or value==""       
+         proj=String.new          
+         proj="project."+"#{key}"+"_author=user.name" 
+         eval(proj)
+         project.save 
+      end
+    end  
+  end
+  
+  def remember_author_update(project_array, project,old_project)#pierwszy parametr to params/post a drugi parametr to obiekt
+    user=current_user
+    project_array.each do |key,value|
+    next if key == "game_ids"
+      unless value.nil? or value=="" 
+      if value != old_project[key]   
+      str=<<-EOS
+        "unless"+"#{value}"+"==old_project."+"#{key}"
+          "project."+"#{key}"+"_author=user.name"
+        "end"
+      EOS
+      
+    eval(str)
+    project.save    
+    end  
+        # proj=String.new           
+        #  str= "unless project."+"#{key}==old_project."+"#{key}"+"\n"+"project."+"#{key}=user.name"+"\n"+"end"   
+   #                       
+        # proj="unless project."+"#{key}"=="old_project."+"#{key}"     
+        # eval(str)
+        # project.save 
+      end
+    end  
+  end
+  
   
   def remember_changes(new_array ,old_project,project_id)
     new_array.each do |key,new_value|
