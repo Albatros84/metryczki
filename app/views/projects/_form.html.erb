@@ -121,7 +121,7 @@
 	    <%= f.text_area :other_information, :rows=>2, :cols=>105%>
 	  </div>
 	</div>
-	
+	<h3 id="zespol">Zespół </h3>
 <div class="zespol"> 
  <div class="field">
 	    <%= f.label :główny_trener_prowadzący%><br />
@@ -209,15 +209,5 @@
 	  </div>
 <% end %>
 
-	<h3>Zespół </h3>
-	<%= form_tag('myupdate', :remote => true) do%>	
-	<%= hidden_field_tag(:project_id, @project.id) %>
-	<%= select_tag "users", options_from_collection_for_select(@users, "id", "name")%>
-	<%= select_tag "proj_role", options_for_select([ "trener", "asystent", "koordynator merytoryczny", "reporter" ]) %>
-	<%= button_to "Dodaj uczestnika", {:controller => "projects", :action => "myupdate"}, :remote => true,:id => @project.id %>
-	<%end%>
-	<div id="part">
-		<%= render :partial=>"partial"%>
-	</div>
-
+	
 
