@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130321234013) do
+ActiveRecord::Schema.define(:version => 20130325123056) do
 
   create_table "field_histories", :force => true do |t|
     t.string   "value"
@@ -133,6 +133,49 @@ ActiveRecord::Schema.define(:version => 20130321234013) do
     t.string   "numer_ks"
     t.integer  "numer_ks_history_id"
     t.integer  "user_roles_id"
+    t.string   "name_author"
+    t.string   "client_author"
+    t.string   "project_type_author"
+    t.string   "highrise_author"
+    t.string   "skydrive_author"
+    t.string   "basecamp_author"
+    t.string   "participant_count_author"
+    t.string   "game_author"
+    t.string   "groups_division_author"
+    t.string   "number_of_rooms_author"
+    t.string   "date_of_game_author"
+    t.string   "hour_duration_author"
+    t.string   "localization_author"
+    t.string   "contacts_client_author"
+    t.string   "contacts_hotel_author"
+    t.string   "transport_details_author"
+    t.string   "accomodation_author"
+    t.string   "target_agreed_with_customer_author"
+    t.string   "other_expectations_author"
+    t.string   "subject_author"
+    t.string   "proftile_of_participants_author"
+    t.string   "contact_person_on_client_side_author"
+    t.string   "host_of_the_meeting_author"
+    t.string   "other_information_author"
+    t.string   "leading_head_coach_author"
+    t.string   "second_coach_author"
+    t.string   "cpd_trainee_author"
+    t.string   "assistants_author"
+    t.string   "agenda_of_meeting_author"
+    t.string   "responsibilities_division_author"
+    t.string   "after_game_summary_author"
+    t.string   "invitation_for_participants_author"
+    t.string   "purpose_and_other_expectations_author"
+    t.string   "participants_short_description_in_groups_author"
+    t.string   "course_of_training_author"
+    t.string   "on_fly_findings_and_suggestions_author"
+    t.string   "project_evaluation_author"
+    t.string   "proposals_for_sales_potential_author"
+    t.string   "merytoryka_author"
+    t.string   "conduct_and_summary_of_game_author"
+    t.string   "notes_on_materials_author"
+    t.string   "notes_on_organization_author"
+    t.string   "numer_ks_author"
   end
 
   create_table "user_project_roles", :force => true do |t|
