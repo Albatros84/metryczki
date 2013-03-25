@@ -212,7 +212,7 @@ class ProjectsController < ApplicationController
      respond_to do |format|
        if @project.update_attributes(params[:project])
          
-         remember_author_update(params[:project], @project, old_project)
+         #remember_author_update(params[:project], @project, old_project)
          
          remember_changes params[:project], old_project, id
          format.html { redirect_to projects_url, notice: 'Project was successfully updated.' }                          
@@ -275,9 +275,12 @@ class ProjectsController < ApplicationController
           @field_history.value = old_project[key]          
           @field_history.save
           project_instance=Project.find_by_id(project_id)
-          proj=String.new          
-          proj="project_instance."+"#{key}"+"_history_id=@field_history.id"         
+          proj=String.new     
+          author=String.new     
+          proj="project_instance."+"#{key}"+"_history_id=@field_history.id" 
+          author="project_instance."+"#{key}"+"_author=user.name"          
           eval(proj)
+          eval(author)
           project_instance.save
       end
     end
