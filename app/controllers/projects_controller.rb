@@ -96,7 +96,11 @@ class ProjectsController < ApplicationController
     @users_from_history=Hash.new
     unless User.minimum("id")==nil
       User.minimum("id").upto(User.maximum("id")){|i|
-        @users_from_history[i]=User.find(i)
+        begin        
+          @users_from_history[i]=User.find(i)
+        rescue
+          nil
+        end
         }
     end
     
@@ -119,7 +123,11 @@ class ProjectsController < ApplicationController
                      
            unless FieldHistory.minimum("id")==nil
         FieldHistory.minimum("id").upto(FieldHistory.maximum("id")){|i|  
-          @field_hist_arr[i]=FieldHistory.find(i)    
+          begin
+            @field_hist_arr[i]=FieldHistory.find(i)    
+          rescue
+            nil
+          end  
           }       
            end
     #tu są userzy z idekami takimi jakie mamy field_histories    
