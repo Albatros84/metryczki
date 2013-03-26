@@ -20,7 +20,7 @@
 $(document).ready(function(){
   	  $("tr.autor td").hide(); 
       $("a.pokaz_autora").click(function(){
-      $("tr.autor td").toggle('fast','swing');
+      $("tr.autor td").toggle('fast','linear');
      });
     });
     
