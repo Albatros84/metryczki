@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+tr.autor td{
+   border-style: none; 
+   font-size: 10px;
+   margin: 1px 1px 1px 1px;
+   padding: 1px 1px 1px 15px;
+}
+
 .admin{
   color: #DC143C;
   overflow: hidden; 

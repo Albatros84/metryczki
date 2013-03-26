@@ -18,26 +18,33 @@
 //= require_tree .
 
 $(document).ready(function(){
+  	  $("tr.autor td").hide(); 
+      $("a.pokaz_autora").click(function(){
+      $("tr.autor td").toggle('fast','swing');
+     });
+    });
+    
+$(document).ready(function(){
   	  $("td.admin").hide(); 
-      $("a.pokaz").click(function(){
+      $("a.pokaz_historie").click(function(){
       $("td.admin").toggle('fast','swing');
      });
     });
 $(document).ready(function(){
   	  $("td.trener").hide(); 
-      $("div.pokaz").click(function(){
+      $("a.pokaz_historie").click(function(){
       $("td.trener").toggle('fast','swing');
      });
     });
 $(document).ready(function(){
   	  $("td.biuro").hide(); 
-      $("div.pokaz").click(function(){
+      $("a.pokaz_historie").click(function(){
       $("td.biuro").toggle('fast','swing');
      });
     });    
 $(document).ready(function(){
   	  $("td.sprzedaż").hide(); 
-      $("div.pokaz").click(function(){
+      $("a.pokaz_historie").click(function(){
       $("td.sprzedaż").toggle('fast','swing');
      });
     });        
