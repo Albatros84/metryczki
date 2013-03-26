@@ -17,6 +17,32 @@
 //= require ckeditor/ckeditor
 //= require_tree .
 
+$(document).ready(function(){
+  	  $("td.admin").hide(); 
+      $("a.pokaz").click(function(){
+      $("td.admin").toggle('fast','swing');
+     });
+    });
+$(document).ready(function(){
+  	  $("td.trener").hide(); 
+      $("div.pokaz").click(function(){
+      $("td.trener").toggle('fast','swing');
+     });
+    });
+$(document).ready(function(){
+  	  $("td.biuro").hide(); 
+      $("div.pokaz").click(function(){
+      $("td.biuro").toggle('fast','swing');
+     });
+    });    
+$(document).ready(function(){
+  	  $("td.sprzedaż").hide(); 
+      $("div.pokaz").click(function(){
+      $("td.sprzedaż").toggle('fast','swing');
+     });
+    });        
+    
+    
 
 $(document).ready(function(){
   $("#p1").mouseleave(function(){

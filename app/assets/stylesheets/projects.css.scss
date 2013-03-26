@@ -2,30 +2,37 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-
 .admin{
   color: #DC143C;
   overflow: hidden; 
   max-width: 150px;
+  font-size: 10px;
 }
 .sprzedaż{
   color: #6495ED;
   overflow: hidden; 
   max-width: 150px;
+  font-size: 10px;
 }
 .biuro{
   color: #4B0082;
   overflow: hidden; 
   max-width: 150px;
+  font-size: 10px;
 }
 .trener{
   color: #006400;
   overflow: hidden; 
   max-width: 150px;
+  font-size: 10px;
 }
 
-
+.pokaz{
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: underline;
+  color: rgb(237,32,36);
+}
 
 table.tabl{
   border-style: none;

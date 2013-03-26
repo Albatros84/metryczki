@@ -1,22 +1,21 @@
 <div class="links_top">
 <%= link_to 'Edit', edit_project_path(@project) %> <br/>
-<%= link_to 'Back', projects_path %>
+<%= link_to 'Back', projects_path %></br>
+<a href="#" class="pokaz">Historia </a>
 </div>
 	<h1>Szczegóły projektu</h1>
 <p id="notice"><%= notice %></p>
 <h3 id="metr">Metryczka </h3>
-
-<div class="metr">
-	
+<div class="metr">	
 	<table class="tabl">
 	<tr>
+		
 		<td class="head"><b>Nazwa projektu:</b> </td>
 		<td class="ins"><%=@project.name%> </td> 
 		<% if(@project.name_history_id!=nil && @field_hist_arr[@project.name_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.name_history_id].user_id]!=nil) %>			
 			<td class=<%=@users_from_history[@field_hist_arr[@project.name_history_id].user_id].role%>  ><%= "Historia: "+@field_hist_arr[@project.name_history_id].value%> <br/>
 				<%="Autor: "+@users_from_history[@field_hist_arr[@project.name_history_id].user_id].name%>
-				</td>	
-			
+				</td>				
 			<% end %> 		
 	</tr>
 	

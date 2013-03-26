@@ -268,7 +268,7 @@ class ProjectsController < ApplicationController
           "project."+"#{key}"+"_author=user.name"
         "end"
       EOS
-      
+           
     eval(str)
     project.save    
     end  
@@ -282,17 +282,11 @@ class ProjectsController < ApplicationController
     end  
   end
   
-   # str="names<<project_instance."+"#{key}"+"_author"
-          # eval(str)  #tutaj mam hash ze wszystkimi imionami autorów pól w projekcie
-          # names.each do |name|
-            # users<<User.find_by_name(name)  #tutaj mam wyciągniętych już całych userów          
-          # end
   
   def remember_changes(new_array ,old_project,project_id)
     new_array.each do |key,new_value|
       next if key == "game_ids"
       if new_value != old_project[key]
-       # raise "#{key}"names=Hash.new
         users=Hash.new
         str=String.new
           
@@ -301,7 +295,6 @@ class ProjectsController < ApplicationController
           @field_history = FieldHistory.new          
           str="@field_history.user_id=project_instance."+"#{key}"+"_author"
           eval(str)
-          #@field_history.user_id=user.id   #zalogowany użytkownik zapisywany w field histories
                     
           @field_history.value = old_project[key]          
           @field_history.save
