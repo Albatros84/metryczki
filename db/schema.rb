@@ -153,7 +153,7 @@ ActiveRecord::Schema.define(:version => 20130325123056) do
     t.integer  "target_agreed_with_customer_author"
     t.integer  "other_expectations_author"
     t.integer  "subject_author"
-    t.integer  "proftile_of_participants_author"
+    t.integer  "profile_of_participants_author"
     t.integer  "contact_person_on_client_side_author"
     t.integer  "host_of_the_meeting_author"
     t.integer  "other_information_author"

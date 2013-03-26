@@ -4,7 +4,7 @@ class AddAuthorToProject < ActiveRecord::Migration
         :number_of_rooms_author,:date_of_game_author,:hour_duration_author,
         :localization_author,:contacts_client_author,:contacts_hotel_author,
         :transport_details_author,:accomodation_author,:target_agreed_with_customer_author,
-        :other_expectations_author,:subject_author,:proftile_of_participants_author,
+        :other_expectations_author,:subject_author,:profile_of_participants_author,
         :contact_person_on_client_side_author,:host_of_the_meeting_author,
         :other_information_author,:leading_head_coach_author,:second_coach_author,
         :cpd_trainee_author,:assistants_author,:agenda_of_meeting_author,

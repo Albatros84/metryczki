@@ -8,16 +8,19 @@
 <h3 id="metr">Metryczka </h3>
 <div class="metr">	
 	<table class="tabl">
-	<tr>
-		
+	<tr>		
 		<td class="head"><b>Nazwa projektu:</b> </td>
-		<td class="ins"><%=@project.name%> </td> 
+		<td class="ins"><%= @project.name%> </td> <br/>		
 		<% if(@project.name_history_id!=nil && @field_hist_arr[@project.name_history_id].value.to_s!=""&&@users_from_history[@field_hist_arr[@project.name_history_id].user_id]!=nil) %>			
 			<td class=<%=@users_from_history[@field_hist_arr[@project.name_history_id].user_id].role%>  ><%= "Historia: "+@field_hist_arr[@project.name_history_id].value%> <br/>
 				<%="Autor: "+@users_from_history[@field_hist_arr[@project.name_history_id].user_id].name%>
 				</td>				
 			<% end %> 		
 	</tr>
+	
+	<% unless @users_from_history[@project.name_author].nil? %>
+	<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.name_author].name%></td></tr>
+	<%end%>
 	
 <tr>
   <td class="head"><b>Klient:</b></td>
@@ -28,7 +31,9 @@
   	</td>
 			<% end %>   	
 </tr>
-	
+	<% unless @users_from_history[@project.client_author].nil? %>
+	<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.client_author].name%></td></tr>
+		<%end%>
 <tr>
   <td class="head"><b>Rodzaj projektu:</b></td>
   <td class="ins"><%= @project.project_type %></td>
@@ -38,6 +43,10 @@
 				</td>
 			<% end %> 
 </tr>
+
+<% unless @users_from_history[@project.project_type_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.project_type_author].name%></td></tr>
+<%end %>
 
 <tr>
   <td class="head"><b>Numer księgowy:</b></td>
@@ -49,6 +58,10 @@
 			<% end %> 
 </tr>
 
+<% unless @users_from_history[@project.numer_ks_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.numer_ks_author].name%></td></tr>
+<%end%>
+
 <tr>
   <td class="head"><b>Highrise:</b></td>
   <td class="ins"><a href=<%= @project.highrise.to_s%> target="blank"><%= @project.highrise.to_s %></a></td>
@@ -59,6 +72,10 @@
 			<% end %> 
 </tr>
 
+<% unless @users_from_history[@project.highrise_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.highrise_author].name%></td></tr>
+<%end%>
+
 <tr>
   <td class="head"><b>Skydrive:</b></td>
   <td class="ins"><a href=<%= @project.skydrive.to_s%> target="blank"><%= @project.skydrive %></a></td>
@@ -68,6 +85,9 @@
 				</td>
 			<% end %> 
 </tr>
+<% unless @users_from_history[@project.skydrive_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.skydrive_author].name%></td></tr>
+<%end%>
 
 <tr>
   <td class="head"><b>Basecamp:</b></td>
@@ -78,6 +98,9 @@
 				</td>
 			<% end %>
 </tr>
+<% unless @users_from_history[@project.basecamp_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.basecamp_author].name%></td></tr>
+	<%end%>
 	</table>
 </div>
 
@@ -93,6 +116,10 @@
 				 </td>
 			<% end %>
 </tr>
+
+<% unless @users_from_history[@project.participant_count_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.participant_count_author].name%></td></tr>
+	<%end%>
 
 <tr>
   <td class="head"><b>Gra:</b></td>
@@ -115,6 +142,10 @@
 			<% end %>
 </tr>
 
+<% unless @users_from_history[@project.groups_division_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.groups_division_author].name%></td></tr>
+	<%end%>
+
 <tr>
   <td class="head"> <b>Liczba sal:</b></td>
   <td class="ins"><%= @project.number_of_rooms%></td>
@@ -124,6 +155,10 @@
 				 </td>
 			<% end %>
 </tr>
+
+<% unless @users_from_history[@project.number_of_rooms_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.number_of_rooms_author].name%></td></tr>
+	<%end%>
 
 <tr>
   <td class="head"> <b>Data:</b></td>
@@ -135,6 +170,10 @@
 			<% end %>
 </tr>
 
+<% unless @users_from_history[@project.date_of_game_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.date_of_game_author].name%></td></tr>
+	<%end%>
+
 <tr>
   <td class="head"> <b>Godziny:</b></td>
   <td class="ins"><%= @project.hour_duration%></td>
@@ -145,6 +184,10 @@
 			<% end %>
 </tr>
 
+<% unless @users_from_history[@project.hour_duration_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.hour_duration_author].name%></td></tr>
+	<%end%>
+
 <tr>
   <td class="head"><b>Lokalizacja:</b></td>
   <td class="ins"><%= @project.localization%></td>
@@ -154,6 +197,9 @@
 				</td>
 			<% end %>
   </tr>
+<% unless @users_from_history[@project.localization_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.localization_author].name%></td></tr>
+	<%end%>
 
 <tr>
   <td class="head"> <b>Osoby kontaktowe od strony organizacyjnej (klient):</b></td>
@@ -165,6 +211,10 @@
 			<% end %>
 </tr>
 
+<% unless @users_from_history[@project.contacts_client_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.contacts_client_author].name%></td></tr>
+	<%end%>
+
 <tr>
   <td class="head">  <b>Osoby kontaktowe od strony organizacyjnej (hotel):</b></td>
   <td class="ins"><%= @project.contacts_hotel%></td>
@@ -174,6 +224,10 @@
 				 </td>
 			<% end %>
 </tr>
+
+<% unless @users_from_history[@project.contacts_hotel_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.contacts_hotel_author].name%></td></tr>
+	<%end%>
 
 <tr>
   <td class="head"><b>Szczegóły dotyczące transportu:</b></td>
@@ -185,6 +239,10 @@
 			<% end %>
 </tr>
 
+<% unless @users_from_history[@project.transport_details_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.transport_details_author].name%></td></tr>
+	<%end%>
+
 <tr>
   <td class="head"><b>Zakwaterowanie:</b></td>
   <td class="ins"><%= @project.accomodation%></td>
@@ -194,6 +252,10 @@
 				 </td>
 			<% end %>
  </tr>
+ 
+ <% unless @users_from_history[@project.accomodation_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.accomodation_author].name%></td></tr>
+	<%end%>
 </table>
 </div>
 
@@ -209,7 +271,11 @@
 				</td>
 			<% end %>
 </tr>
-<tr>
+
+<% unless @users_from_history[@project.target_agreed_with_customer_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.target_agreed_with_customer_author].name%></td></tr>
+	<%end%>
+
 		<td class="head">
   <b>Pozostałe oczekiwania klienta:</b></td>
   <td class="ins"><%= @project.other_expectations%></td>
@@ -219,6 +285,11 @@
 				 </td>
 			<% end %>
 </tr>
+
+<% unless @users_from_history[@project.other_expectations_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.other_expectations_author].name%></td></tr>
+	<%end%>
+
 <tr>
 		<td class="head"><b>Temat i kontekst:</b></td>
   <td class="ins"><%= @project.subject%></td>
@@ -228,6 +299,11 @@
 				</td>
 			<% end %>
 </tr>
+
+<% unless @users_from_history[@project.subject_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.subject_author].name%></td></tr>
+	<%end%>
+
 <tr>
 		<td class="head"><b>Profil uczestników:</b></td>
   <td class="ins"><%= @project.profile_of_participants%></td>
@@ -237,6 +313,11 @@
 				 </td>
 			<% end %>
 </tr>
+
+<% unless @users_from_history[@project.profile_of_participants_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.profile_of_participants_author].name%></td></tr>
+	<%end%>
+
 <tr>
 		<td class="head"><b>Osoba kontaktowa po stronie klienta:</b></td>
   <td class="ins"><%= @project.contact_person_on_client_side%></td>
@@ -246,6 +327,11 @@
 				 </td>
 			<% end %>
 </tr>
+
+<% unless @users_from_history[@project.contact_person_on_client_side_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.contact_person_on_client_side_author].name%></td></tr>
+	<%end%>
+
 <tr>
 		<td class="head"> <b>Gospodarz lub sponsor spotkania:</b></td>
   <td class="ins"><%= @project.host_of_the_meeting%></td>
@@ -255,6 +341,11 @@
 				 </td>
 			<% end %>
 </tr>
+
+<% unless @users_from_history[@project.host_of_the_meeting_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.host_of_the_meeting_author].name%></td></tr>
+	<%end%>
+
 <tr>
 		<td class="head"> <b>Pozostałe informacje (np. rodzaj raportu) :</b></td>
   <td class="ins"><%= @project.other_information%></td>
@@ -264,6 +355,11 @@
 				 </td>
 			<% end %>
 </tr>
+
+<% unless @users_from_history[@project.other_information_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.other_information_author].name%></td></tr>
+	<%end%>
+
 </table>
 </div>
 
@@ -290,6 +386,9 @@
 				 </td>
 			<% end %>
 </tr>
+<% unless @users_from_history[@project.assistants_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.assistants_author].name%></td></tr>
+	<%end%>
 </table>
 </div>
 <h3 id="przedPro"> Przed projektem </h3>
@@ -304,6 +403,11 @@
 				</td>
 			<% end %>
 </tr>
+
+<% unless @users_from_history[@project.agenda_of_meeting_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.agenda_of_meeting_author].name%></td></tr>
+	<%end%>
+
 <tr>
       <td class="head"><b>Podział obowiązków grupy projektowej:</b></td>
   <td class="ins"><%= @project.responsibilities_division%></td>
@@ -313,6 +417,11 @@
 			 </td>
 			<% end %>
 </tr>
+
+<% unless @users_from_history[@project.responsibilities_division_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.responsibilities_division_author].name%></td></tr>
+	<%end%>
+
 <tr>
       <td class="head"><b>Podsumowanie po grze oraz program warsztatu:</b></td>
   <td class="ins"><%= @project.after_game_summary%></td>
@@ -321,6 +430,11 @@
 			<%="Autor: "+@users_from_history[@field_hist_arr[@project.after_game_summary_history_id].user_id].name%></td>
 			<% end %>
 </tr>
+
+<% unless @users_from_history[@project.after_game_summary_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.after_game_summary_author].name%></td></tr>
+	<%end%>
+
 <tr>
       <td class="head"><b>Zaproszenie, dla uczestników:</b></td>
   <td class="ins"><%= @project.invitation_for_participants%></td>
@@ -330,6 +444,11 @@
 				</td>
 			<% end %>
 </tr>
+
+<% unless @users_from_history[@project.invitation_for_participants_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.invitation_for_participants_author].name%></td></tr>
+	<%end%>
+
 </table>
 </div>
 
@@ -345,6 +464,11 @@
 				</td>
 			<% end %>
 </tr>
+
+<% unless @users_from_history[@project.purpose_and_other_expectations_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.purpose_and_other_expectations_author].name%></td></tr>
+	<%end%>
+
 <tr>
       <td class="head"><b>Uczestnicy i krótka charakterystyka z podziałem na grupy:</b></td>
   <td class="ins"><%= @project.participants_short_description_in_groups%></td>
@@ -354,6 +478,11 @@
 				</td>
 			<% end %>
 </tr>
+
+<% unless @users_from_history[@project.participants_short_description_in_groups_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.participants_short_description_in_groups_author].name%></td></tr>
+	<%end%>
+
 <tr>
       <td class="head"><b>Przebieg szkolenia oraz gry:</b></td>
   <td class="ins"><%= @project.course_of_training%></td>
@@ -363,6 +492,11 @@
 				 </td>
 			<% end %>
 </tr>
+
+<% unless @users_from_history[@project.course_of_training_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.course_of_training_author].name%></td></tr>
+	<%end%>
+
 <tr>
       <td class="head"><b>Ustalenia z klientem uzgodnione podczas projektu oraz jego sugestie:</b></td>
   <td class="ins"><%= @project.on_fly_findings_and_suggestions%></td>
@@ -372,6 +506,11 @@
 				 </td>
 			<% end %>
 </tr>
+
+<% unless @users_from_history[@project.on_fly_findings_and_suggestions_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.on_fly_findings_and_suggestions_author].name%></td></tr>
+	<%end%>
+
 <tr>
       <td class="head"><b>Ocena realizacji projektu przez zespół projektowy:</b></td>
   <td class="ins"><%= @project.project_evaluation%></td>
@@ -381,6 +520,11 @@
 				</td>
 			<% end %>
 </tr>
+
+<% unless @users_from_history[@project.project_evaluation_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.project_evaluation_author].name%></td></tr>
+	<%end%>
+
 <tr>
       <td class="head"><b>Wnioski dotyczące potencjału sprzedażowego:</b></td>
   <td class="ins"><%= @project.proposals_for_sales_potential%></td>
@@ -390,6 +534,12 @@
 				</td>
 			<% end %>
 </tr>
+
+<% unless @users_from_history[@project.proposals_for_sales_potential_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.proposals_for_sales_potential_author].name%></td></tr>
+	<%end%>
+
+
 <tr>
       <td class="head"><b>Merytoryka oraz program warsztatu, gra vs cel, podsumowanie po grze:</b></td>
   <td class="ins"><%= @project.merytoryka%></td>
@@ -399,6 +549,10 @@
 				 </td>
 			<% end %>
 </tr>
+
+<% unless @users_from_history[@project.merytoryka_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.merytoryka_author].name%></td></tr>
+	<%end%>
 <tr>
   <td class="head"><b>Przeprowadzenie i podsumowanie gry:</b></td>
   <td class="ins"><%= @project.conduct_and_summary_of_game%></td>
@@ -408,6 +562,11 @@
 				 </td>
 			<% end %>
 </tr>
+
+<% unless @users_from_history[@project.conduct_and_summary_of_game_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.conduct_and_summary_of_game_author].name%></td></tr>
+	<%end%>
+
 <tr>
   <td class="head"><b>Uwagi odnośnie materiałów:</b></td>
   <td class="ins"><%= @project.notes_on_materials%></td>
@@ -417,6 +576,11 @@
 				</td>
 			<% end %>
 </tr>
+
+<% unless @users_from_history[@project.notes_on_materials_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.notes_on_materials_author].name%></td></tr>
+	<%end%>
+
 <tr>
   <td class="head"><b>Uwagi odnośnie organizacji:</b></td>
   <td class="ins"><%= @project.notes_on_organization%></td>
@@ -425,7 +589,9 @@
 				<%="Autor: "+@users_from_history[@field_hist_arr[@project.notes_on_organization_history_id].user_id].name%>
 				</td>
 			<% end %>
-  
+  <% unless @users_from_history[@project.notes_on_organization_author].nil? %>
+<tr class="autor"><td></td><td><%= "Autor: "+@users_from_history[@project.notes_on_organization_author].name%></td></tr>
+	<%end%>
 </tr>
 </table>
 </div>
