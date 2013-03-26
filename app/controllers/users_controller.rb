@@ -40,10 +40,19 @@ class UsersController < ApplicationController
   
     def destroy
     @user = User.find(params[:id])
+    user=current_user
+    id=@user.id   
     @user.destroy
 
     respond_to do |format|
-      format.html { redirect_to users_url }
+      format.html { 
+        if id==user.id
+          redirect_to root_url, :notice => "Logged out!"
+          cookies.delete(:auth_token)
+        else
+          redirect_to users_url
+        end  
+        }
       format.json { head :no_content }
     end
   end
