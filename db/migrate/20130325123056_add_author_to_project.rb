@@ -26,7 +26,7 @@ class AddAuthorToProject < ActiveRecord::Migration
    fields.each do |a|
     a=":"+a.to_s
    str="add_column :projects, "
-   str2=", :string"
+   str2=", :integer"
    exec=str+a+str2
    eval(exec)
    end

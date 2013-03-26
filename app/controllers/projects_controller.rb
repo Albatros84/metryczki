@@ -185,7 +185,11 @@ class ProjectsController < ApplicationController
          
          @user_ids.each do |id|
           unless id.nil?
-              @user_names<<User.find(id)        
+            begin
+              @user_names<<User.find(id)   
+            rescue
+              nil
+            end       
           end
          end
   end
@@ -246,7 +250,7 @@ class ProjectsController < ApplicationController
     next if key == "game_ids"
       unless value.nil? or value==""       
          proj=String.new          
-         proj="project."+"#{key}"+"_author=user.name" 
+         proj="project."+"#{key}"+"_author=user.id" 
          eval(proj)
          project.save 
       end
@@ -280,20 +284,39 @@ class ProjectsController < ApplicationController
   
   
   def remember_changes(new_array ,old_project,project_id)
+    names=Hash.new
+    users=Hash.new
+    str=String.new
+    project_instance=Project.find_by_id(project_id)
+    str="names<<project_instance."+"#{key}"+"_author"
+          eval(str)  #tutaj mam hash ze wszystkimi imionami autorów pól w projekcie
+          names.each do |name|
+            users<<User.find_by_name(name)  #tutaj mam wyciągniętych już całych userów          
+          end
+    
     new_array.each do |key,new_value|
       next if key == "game_ids"
       if new_value != old_project[key]
        # raise "#{key}"
+          
           user=current_user
           @field_history = FieldHistory.new
-          @field_history.user_id=user.id
+                   
+          #User.find_by_name()
+          
+          
+          
+         #"@field_history.user_id=project_instance."+"#{key}"+"_author"
+          
+          #@field_history.user_id=user.id   #zalogowany użytkownik zapisywany w field histories
+                    
           @field_history.value = old_project[key]          
           @field_history.save
-          project_instance=Project.find_by_id(project_id)
+          
           proj=String.new     
           author=String.new     
           proj="project_instance."+"#{key}"+"_history_id=@field_history.id" 
-          author="project_instance."+"#{key}"+"_author=user.name"          
+          author="project_instance."+"#{key}"+"_author=user.name"       #zapisanie autora   
           eval(proj)
           eval(author)
           project_instance.save
