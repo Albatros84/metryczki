@@ -122,7 +122,7 @@ class ProjectsController < ApplicationController
          end
                      
            unless FieldHistory.minimum("id")==nil
-        FieldHistory.minimum("id").upto(FieldHistory.maximum("id")){|i|  
+              FieldHistory.minimum("id").upto(FieldHistory.maximum("id")){|i|  
           begin
             @field_hist_arr[i]=FieldHistory.find(i)    
           rescue
@@ -140,7 +140,8 @@ class ProjectsController < ApplicationController
       format.html    # show.html.erb
       format.json { render json: @project }
       format.pdf do
-        pdf=ProjectPdf.new(@project, view_context)
+        user=current_user
+        pdf=ProjectPdf.new(@project, view_context, user)
         send_data pdf.render, filename: "project_#{@project.created_at.strftime("%d/%m/%Y")}.pdf", 
         type: "application/pdf"
       end
