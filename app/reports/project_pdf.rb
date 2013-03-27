@@ -9,6 +9,7 @@ class ProjectPdf < Prawn::Document
     logo    
     metryczka(@project)
     spr_org(@project)
+    kw_mer(@project)
     end               
   end
   
@@ -44,7 +45,6 @@ class ProjectPdf < Prawn::Document
   move_down 10
 end
 
-
    def spr_org(project)
      move_down 15
     @project=project
@@ -74,6 +74,14 @@ end
     move_down 10
 end
 
+def kw_mer(project)
+  @project=project
+  move_down 15
+    text "Kwestie merytoryczne", :size=>16, :align=>:center
+  move_down 10
+    text  "Cel uzgodniony z klientem "+"#{@project.target_agreed_with_customer}", :size=>10, :align=>:center
+  move_down 10
+end
 
   def subscription_date
     move_down 40
