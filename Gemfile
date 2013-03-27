@@ -10,7 +10,7 @@ gem 'pg'
 gem 'mysql2'
 gem "mail"#, "2.1.3"
 gem 'ckeditor_rails', '~> 4.0.1.1'
-#gem 'prawn'
+gem 'prawn'
 
 # Gems used only for assets and not required
 # in production environments by default.
