@@ -1,30 +1,79 @@
+#!/usr/local/bin/ruby
+# coding: utf-8
 class ProjectPdf < Prawn::Document
   def initialize (project, view, user)
     super()      
     @project=project
     @view=view
     @user=user
-    logo  
-    
-    #example_prawn         
+    logo    
+    metryczka(@project)
+    spr_org(@project)
+    end               
   end
   
   def logo
+    move_down 10
     logopath =  "#{Rails.root}/app/assets/images/logo.jpg"
     image logopath, :width => 655, :height => 122, :position=>:center, :vposition=>:top, :scale=>0.4
-    #move_down 10
-    #draw_text " #{@project.name} ", :at => [100, 575], size: 18
+    move_down 20
   end
 
 
-
-  def thanks_message
-    move_down 80
-    text "Hello #{@user.name},"
+  def metryczka(project)
     move_down 15
-    text "Podsumowanie projektu specjalnie dla Ciebie. ",
-    :indent_paragraphs => 40, :size => 13
+    @project=project
+    font "Helvetica"
+    text "Metryczka", :size=>16, :align=>:center
+    move_down 10
+    font_size=9
+    table ([["Nazwa projektu: ", "#{@project.name}"],
+    ["Klient: ", "#{@project.client}"],
+    ["Typ projektu: ", "#{@project.project_type}"],
+    ["Numer ksiegowy: ", "#{@project.numer_ks}"],
+    ["Highrise: ","#{@project.highrise}"],
+    ["Skydrive: ","#{@project.skydrive}"],
+    ["Basecamp: ","#{@project.basecamp}"]]), 
+    :width => 500 do
+      columns(0).align = :left
+      columns(1).align = :left
+      self.header = true
+      self.column_widths = {0 => 200, 1 => 300}
+      columns(0).font_style = :bold   
   end
+  move_down 10
+end
+
+
+   def spr_org(project)
+     move_down 15
+    @project=project
+    font "Helvetica"
+    text "Sprawy organizacyjne", :size=>16, :align=>:center
+    move_down 10
+    font_size=9
+    table ([["Ilosc uczestników: ", "#{@project.participant_count}"],
+    ["Gra: ", "#{@project.game}"],
+    ["Podzial na grupy: ", "#{@project.groups_division}"],
+    ["Ilosc pokoi: ", "#{@project.number_of_rooms}"],
+    ["Data gry: ","#{@project.date_of_game}"],
+    ["Czas trwania: ","#{@project.hour_duration}"],
+    ["Lokalizacja: ","#{@project.localization}"],
+    ["Osoby kontaktowe od strony organizacyjnej (klient): ","#{@project.contacts_client}"],
+    ["Osoby kontaktowe od strony organizacyjnej (hotel): ","#{@project.contacts_hotel}"],
+    ["Szczególy dotyczace transportu:" ,"#{@project.transport_details}"],
+    ["Zakwaterowanie: ","#{@project.accomodation}"]
+    ]), 
+    :width => 500 do
+      columns(0).align = :left
+      columns(1).align = :left
+      self.header = true
+      self.column_widths = {0 => 200, 1 => 300}
+      columns(0).font_style = :bold   
+  end
+    move_down 10
+end
+
 
   def subscription_date
     move_down 40
@@ -45,24 +94,6 @@ class ProjectPdf < Prawn::Document
     end
   end
 
-  def subscription_amount
-    subscription_amount = @invoice.calculate_subscription_amount
-    vat = @invoice.calculated_vat
-    delivery_charges = @invoice.calculated_delivery_charges
-    sales_tax =  @invoice.calculated_sales_tax
-    table ([["Vat (12.5% of Amount)", "", "", "#{precision(vat)}"] ,
-    ["Sales Tax (10.3% of half the Amount)", "", "",
-    "#{precision(sales_tax)}"]   ,
-    ["Delivery charges", "", "", "#{precision(delivery_charges)}  "],
-    ["", "", "Total Amount", "#{precision(@invoice.total_amount) }  "]]), 
-    :width => 500 do
-      columns(2).align = :left
-      columns(3).align = :right
-      self.header = true
-      self.column_widths = {0 => 200, 1 => 100, 2 => 100, 3 => 100}
-      columns(2).font_style = :bold
-    end
-  end
 
   def subscription_item_rows
     [["Description", "Quantity", "Rate", "Amount"]] +
@@ -214,4 +245,3 @@ end
   end
   
     
-end
