@@ -7,30 +7,20 @@ class TempController < ApplicationController
      
     end
 
-
-  def new
-    require "prawn"
-
-  Prawn::Document.generate("hello.pdf") do
-    text "Hello World!"
-  end   
-  end
-
-
   def index
       Prawn::Document.generate("hello.pdf") do
     text "Hello World!"
   end  
     
     
-    # output = HelloReport.new.to_pdf
-# 
-    # respond_to do |format|
-      # format.pdf do
-        # send_data output, :filename => "hello.pdf", 
-                          # :type => "application/pdf"
-      # end
-    # end
+    output = HelloReport.new.to_pdf
+
+     respond_to do |format|
+       format.pdf do
+         send_data output, :filename => "hello.pdf", 
+                           :type => "application/pdf"
+       end
+     end
    end
 
 

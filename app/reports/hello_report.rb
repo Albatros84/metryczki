@@ -1,6 +1,6 @@
 class HelloReport < Prawn::Document
   def to_pdf
     text "Hello world"
-    render
+    render_file
   end
 end

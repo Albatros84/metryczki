@@ -132,11 +132,18 @@ class ProjectsController < ApplicationController
            end
     #tu są userzy z idekami takimi jakie mamy field_histories    
     #potrzebujemy tu dostępu do usera, ale jego user_id wyciągamy z field_histories
-    #po to żeby wyciągnąć rolę z usera        
+    #po to żeby wyciągnąć rolę z usera   
+    
+         
                
     respond_to do |format|
       format.html    # show.html.erb
       format.json { render json: @project }
+      format.pdf do
+        pdf=ProjectPdf.new(@project, view_context)
+        send_data pdf.render, filename: "project_#{@project.created_at.strftime("%d/%m/%Y")}.pdf", 
+        type: "application/pdf"
+      end
     end
   end
 
