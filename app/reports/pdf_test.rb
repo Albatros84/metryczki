@@ -3,7 +3,7 @@ require 'prawn'
 
 Prawn::Document.generate("invoice.pdf") do |pdf|
   
-  logopath = 'example_logo.JPG'
+  logopath = 'logo.jpg'
   initial_y = pdf.cursor
   initialmove_y = 5
   address_x = 35
