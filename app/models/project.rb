@@ -35,11 +35,8 @@ class Project < ActiveRecord::Base
   validates_presence_of :client, :on => :create
   validates_presence_of :project_type, :on => :create
   
-  validates :client, :highrise, :skydrive, :basecamp, :name, :project_type, :length => { :maximum => 240 }
-  validates :game, :number_of_rooms, :date_of_game, :hour_duration, :localization, :contacts_client, :contacts_hotel, :length => { :maximum => 240 }
-  validates :subject, :contact_person_on_client_side, :host_of_the_meeting, :leading_head_coach, :length => { :maximum => 240 }
-  validates :second_coach, :cpd_trainee, :length=>{:maximum=>240}
-  
+  valildates :participant_count, :numer_ks, :length=>{:maximum=>240}
+   
   validates :client_author, :highrise_author, :name_author, :project_type_author, :skydrive_author, :basecamp_author,
   :participant_count_author, :game_author, :groups_division_author, :number_of_rooms_author, :date_of_game_author, :hour_duration_author,
   :localization_author, :contacts_client_author, :contacts_hotel_author, :transport_details_author, :accomodation_author,
