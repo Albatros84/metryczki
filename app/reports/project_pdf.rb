@@ -4,8 +4,7 @@ class ProjectPdf < Prawn::Document
   def initialize (project, view, user)     
     super()      
        kw_mer=[:target_agreed_with_customer, :other_expectations, :subject, :profile_of_participants, :contact_person_on_client_side, :host_of_the_meeting, :other_information]      
-       arr=[:game_ids, :numer_ks, :user_roles_id]
-       metryczka=[:client, :highrise, :name, :project_type, :skydrive, :basecamp] 
+       metryczka=[:client, :highrise, :name, :project_type, :skydrive, :basecamp, :numer_ks] 
        spr_org=[:participant_count, :game, :groups_division, :number_of_rooms, :date_of_game, :hour_duration,
         :localization, :contacts_client, :contacts_hotel, :transport_details, :accomodation]  
        zesp=[:leading_head_coach, :second_coach, :cpd_trainee, :assistants]
@@ -20,22 +19,22 @@ class ProjectPdf < Prawn::Document
       
       logo    
       header(@project, metryczka, "Metryczka")
-      body(@project, metryczka)
-      
+      metryczka(@project)      
       header(@project, spr_org, "Sprawy organizacyjne")
-      body(@project, spr_org)
+      spr_org(@project)
       
-      header(@project, kw_mer, "Kwestie merytoryczne")
-      body(@project, kw_mer)
-            
-      header(@project, zesp, "Zespół")
-      body(@project, zesp)
-      
-      header(@project, przed_pro, "Przed projektem")
-      body(@project, przed_pro)
-      
-      header(@project, po_pro, "Po projekcie")
-      body(@project, po_pro)
+#       
+      # header(@project, kw_mer, "Kwestie merytoryczne")
+#       
+#             
+      # header(@project, zesp, "Zespół")
+#       
+#       
+      # header(@project, przed_pro, "Przed projektem")
+#      
+#       
+      # header(@project, po_pro, "Po projekcie")
+#      
     end               
   end
     
@@ -57,7 +56,59 @@ class ProjectPdf < Prawn::Document
       text "#{head}", :size=>16, :align=>:center      
     end
   end
+  
+  def logo
+    move_down 10
+    logopath =  "#{Rails.root}/app/assets/images/logo.jpg"
+    image logopath, :width => 655, :height => 122, :position=>:center, :vposition=>:top, :scale=>0.38
+    move_down 20
+  end
+  
+  def show_field(field, title)    
+    unless field.nil? || field==""; move_down 3; text title+": "+"#{field}", :size=>12; move_down 3 end
+  end
+    
+  def metryczka(project)
+    @project=project            
+    show_field(@project.name, "Nazwa projektu") 
+    show_field(@project.client, "Klient")
+    show_field(@project.project_type, "Typ projektu")
+    show_field(@project.numer_ks, "Numer ksiegowy")
+    show_field(@project.highrise, "Highrise")
+    show_field(@project.skydrive, "Skydrive")
+    show_field(@project.basecamp, "Basecamp")
+  end
 
+  def spr_org(project)
+    @project=project
+    show_field(@project.participant_count, "Ilosc uczestników") 
+    show_field(@project.game, "Gra")
+    show_field(@project.groups_division, "Podzial na grupy")
+    show_field(@project.number_of_rooms, "Ilosc pokoi")
+    show_field(@project.date_of_game, "Data gry") 
+    show_field(@project.hour_duration, "Czas trwania")
+    show_field(@project.localization, "Lokalizacja")
+    show_field(@project.contacts_client, "Osoby kontaktowe od strony organizacyjnej (klient)")
+    show_field(@project.contacts_hotel, "Osoby kontaktowe od strony organizacyjnej (hotel)")
+    show_field(@project.transport_details, "Szczegoly dotyczace transportu")
+    show_field(@project.accomodation, "Zakwaterowanie")
+  end
+
+  def kw_mer(project)
+    @project=project   
+    show_field(@project.participant_count, "Ilosc uczestników") 
+    show_field(@project.game, "Gra")
+    show_field(@project.groups_division, "Podzial na grupy")
+    show_field(@project.number_of_rooms, "Ilosc pokoi")
+    show_field(@project.date_of_game, "Data gry") 
+    show_field(@project.hour_duration, "Czas trwania")
+    show_field(@project.localization, "Lokalizacja")
+    show_field(@project.contacts_client, "Osoby kontaktowe od strony organizacyjnej (klient)")
+    show_field(@project.contacts_hotel, "Osoby kontaktowe od strony organizacyjnej (hotel)")
+    show_field(@project.transport_details, "Szczegoly dotyczace transportu")
+    show_field(@project.accomodation, "Zakwaterowanie")
+  end
+  
   def body(project, kw_mer)
     @project=project  
     @kw_mer=kw_mer                        
@@ -68,21 +119,151 @@ class ProjectPdf < Prawn::Document
            end
       end          
   end
-    
-  def logo
-    move_down 10
-    logopath =  "#{Rails.root}/app/assets/images/logo.jpg"
-    image logopath, :width => 655, :height => 122, :position=>:center, :vposition=>:top, :scale=>0.4
-    move_down 20
-  end
 
-  def metryczka(project)
-    move_down 15
-    @project=project
-    font "Helvetica"
-    text "Metryczka", :size=>16, :align=>:center
-    move_down 10
-    font_size=9
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+def lamus
+   @metr.each do |me|   #wyświetlanie tylko jeżeli nie jest puste     
+        str="@project."+"#{me}"  
+           unless eval(str).nil? || eval(str)==""
+             text eval(str), :size=>10, :align=>:left
+           end
+      end          
     table ([["Nazwa projektu: ", "#{@project.name}"],
     ["Klient: ", "#{@project.client}"],
     ["Typ projektu: ", "#{@project.project_type}"],
@@ -96,148 +277,8 @@ class ProjectPdf < Prawn::Document
       self.header = true
       self.column_widths = {0 => 200, 1 => 300}
       columns(0).font_style = :bold   
-  end
-  move_down 10
+  end  
 end
-
-   def spr_org(project)
-     move_down 15
-    @project=project
-    font "Helvetica"
-    text "Sprawy organizacyjne", :size=>16, :align=>:center
-    move_down 10
-    font_size=9
-    table ([["Ilosc uczestników: ", "#{@project.participant_count}"],
-    ["Gra: ", "#{@project.game}"],
-    ["Podzial na grupy: ", "#{@project.groups_division}"],
-    ["Ilosc pokoi: ", "#{@project.number_of_rooms}"],
-    ["Data gry: ","#{@project.date_of_game}"],
-    ["Czas trwania: ","#{@project.hour_duration}"],
-    ["Lokalizacja: ","#{@project.localization}"],
-    ["Osoby kontaktowe od strony organizacyjnej (klient): ","#{@project.contacts_client}"],
-    ["Osoby kontaktowe od strony organizacyjnej (hotel): ","#{@project.contacts_hotel}"],
-    ["Szczególy dotyczace transportu:" ,"#{@project.transport_details}"],
-    ["Zakwaterowanie: ","#{@project.accomodation}"]
-    ]), 
-    :width => 500 do
-      columns(0).align = :left
-      columns(1).align = :left
-      self.header = true
-      self.column_widths = {0 => 200, 1 => 300}
-      columns(0).font_style = :bold   
-  end
-    move_down 10
-end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   def subscription_date
     move_down 40
@@ -403,9 +444,7 @@ end
     style(row(0).columns(0), :font_style => :bold)
   end
 
-end
-    
-    
+end    
   end
   
     
