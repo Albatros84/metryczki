@@ -22,19 +22,15 @@ class ProjectPdf < Prawn::Document
       metryczka(@project)      
       header(@project, spr_org, "Sprawy organizacyjne")
       spr_org(@project)
-      
-#       
-      # header(@project, kw_mer, "Kwestie merytoryczne")
-#       
-#             
-      # header(@project, zesp, "Zespół")
-#       
-#       
-      # header(@project, przed_pro, "Przed projektem")
-#      
-#       
-      # header(@project, po_pro, "Po projekcie")
-#      
+      header(@project, kw_mer, "Kwestie merytoryczne")
+      kw_mer(@project)            
+      header(@project, zesp, "Zespół")       
+      zesp(@project) 
+      header(@project, przed_pro, "Przed projektem")
+      przed_pro(@project)
+      header(@project, po_pro, "Po projekcie")
+      po_pro(@project)
+            
     end               
   end
     
@@ -108,6 +104,34 @@ class ProjectPdf < Prawn::Document
     show_field(@project.transport_details, "Szczegoly dotyczace transportu")
     show_field(@project.accomodation, "Zakwaterowanie")
   end
+  
+  def zesp(project)
+    @project=project
+    show_field(@project.assistants, "Uwagi")
+  end
+ 
+  def przed_pro(project)
+    @project=project
+    show_field(@project.agenda_of_meeting, "Agenda spotkania")
+    show_field(@project.responsibilities_division, "Podział obowiązków")
+    show_field(@project.after_game_summary, "Podsumowanie po grze")
+    show_field(@project.invitation_for_participants, "Zaproszenie, dla uczestników")
+  end
+  
+  def po_pro(project)
+    @project=project
+    show_field(@project.purpose_and_other_expectations, "Cele i pozostale oczekiwania klienta" )
+    show_field(@project.participants_short_description_in_groups, "Uczestnicy i krotka charakterystyka z podzialem na grupy")
+    show_field(@project.course_of_training, "Przebieg szkolenia/gry")
+    show_field(@project.on_fly_findings_and_suggestions,"Ustalenia z klientem uzgodnione podczas projektu oraz jego sugestie")
+    show_field(@project.project_evaluation, "Ocena realizacji projektu przez zespół projektowy")
+    show_field(@project.proposals_for_sales_potential, "Propozycje, dla potencjału sprzedazowego")
+    show_field(@project.merytoryka, "Merytoryka")
+    show_field(@project.conduct_and_summary_of_game, "Przeprowadzenie i podsumowanie gry")
+    show_field(@project.notes_on_materials, "Uwagi odnosnie materiałow")
+    show_field(@project.notes_on_organization,"Uwagi odnosnie organizacji")    
+  end
+  
   
   def body(project, kw_mer)
     @project=project  
