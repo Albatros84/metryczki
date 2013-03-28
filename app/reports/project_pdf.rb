@@ -30,7 +30,8 @@ class ProjectPdf < Prawn::Document
       przed_pro(@project)
       header(@project, po_pro, "Po projekcie")
       po_pro(@project)
-            
+      
+        
     end               
   end
     
@@ -38,7 +39,6 @@ class ProjectPdf < Prawn::Document
     @project=project
     @kw_mer=kw_mer        
     counter=0    
-    
     @kw_mer.each do |kw| 
       kw=kw.to_s 
       str="@project."+"#{kw}"
@@ -128,11 +128,10 @@ class ProjectPdf < Prawn::Document
     show_field(@project.proposals_for_sales_potential, "Propozycje, dla potencjału sprzedazowego")
     show_field(@project.merytoryka, "Merytoryka")
     show_field(@project.conduct_and_summary_of_game, "Przeprowadzenie i podsumowanie gry")
-    show_field(@project.notes_on_materials, "Uwagi odnosnie materiałow")
-    show_field(@project.notes_on_organization,"Uwagi odnosnie organizacji")    
+    show_field(@project.notes_on_materials, "Uwagi odnosnie materialow")
+    show_field(@project.notes_on_organization,"Uwagi odnosnie organizacji")      
   end
-  
-  
+    
   def body(project, kw_mer)
     @project=project  
     @kw_mer=kw_mer                        
