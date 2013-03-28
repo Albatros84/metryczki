@@ -1,6 +1,19 @@
 #!/usr/local/bin/ruby
 # coding: utf-8
 class ProjectPdf < Prawn::Document
+ 
+ Arr=[:game_ids, :numer_ks, :user_roles_id]
+ Metryczka=[:client, :highrise, :name, :project_type, :skydrive, :basecamp] 
+ Spr_Org=[:participant_count, :game, :groups_division, :number_of_rooms, :date_of_game, :hour_duration,
+  :localization, :contacts_client, :contacts_hotel, :transport_details, :accomodation] 
+ Kw_Mer=[:target_agreed_with_customer, :other_expectations, :subject, :profile_of_participants,
+  :contact_person_on_client_side, :host_of_the_meeting, :other_information]
+ Zesp=[:leading_head_coach, :second_coach, :cpd_trainee, :assistants]
+ Przed_Pro=[:agenda_of_meeting, :responsibilities_division, :after_game_summary, :invitation_for_participants]
+ Po_Pro=[:purpose_and_other_expectations,:participants_short_description_in_groups,
+  :course_of_training, :on_fly_findings_and_suggestions, :project_evaluation, :proposals_for_sales_potential,
+  :merytoryka, :conduct_and_summary_of_game, :notes_on_materials, :notes_on_organization] 
+    
   def initialize (project, view, user)
     super()      
     @project=project
@@ -12,6 +25,16 @@ class ProjectPdf < Prawn::Document
     kw_mer(@project)
     end               
   end
+
+def kw_mer(project)
+  @project=project  
+  move_down 15
+    text "Kwestie merytoryczne", :size=>16, :align=>:center
+  Kw_Mer.each do |kw|
+    
+  end
+    
+end
   
   def logo
     move_down 10
@@ -19,7 +42,6 @@ class ProjectPdf < Prawn::Document
     image logopath, :width => 655, :height => 122, :position=>:center, :vposition=>:top, :scale=>0.4
     move_down 20
   end
-
 
   def metryczka(project)
     move_down 15
@@ -72,15 +94,6 @@ end
       columns(0).font_style = :bold   
   end
     move_down 10
-end
-
-def kw_mer(project)
-  @project=project
-  move_down 15
-    text "Kwestie merytoryczne", :size=>16, :align=>:center
-  move_down 10
-    text  "Cel uzgodniony z klientem "+"#{@project.target_agreed_with_customer}", :size=>10, :align=>:center
-  move_down 10
 end
 
   def subscription_date
