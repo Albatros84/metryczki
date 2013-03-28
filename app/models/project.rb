@@ -35,7 +35,7 @@ class Project < ActiveRecord::Base
   validates_presence_of :client, :on => :create
   validates_presence_of :project_type, :on => :create
   
-  valildates :participant_count, :numer_ks, :length=>{:maximum=>240}
+  validates :participant_count, :numer_ks, :length=>{:maximum=>240}
    
   validates :client_author, :highrise_author, :name_author, :project_type_author, :skydrive_author, :basecamp_author,
   :participant_count_author, :game_author, :groups_division_author, :number_of_rooms_author, :date_of_game_author, :hour_duration_author,
